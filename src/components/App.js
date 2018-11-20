@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 //import Home from './Home'
 //import Route2 from './Route2'
 //import uid from 'uid'
-//import XY from './XY'
+import Message from './Message'
+import Button from './Button'
+import TextArea from './TextArea'
 
 const Wrapper = styled.section`
   display: grid;
@@ -48,7 +50,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>Hello Bandbook!</div>
+      <div>
+        <em>Bandbook</em> <Message text={'Hello band mates'} />
+        <TextArea placeholder={'Write new message here'} />
+        <Button text={'Add new message'} />{' '}
+      </div>
       // <Router>
       //   <Wrapper>
       //     <Route
