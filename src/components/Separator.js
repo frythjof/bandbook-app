@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   background: ${props => props.background || 'transparent'};
 `
@@ -15,6 +16,7 @@ const NameDate = styled.em`
 const Line = styled.div`
   width: 100%;
   border-bottom: ${props => props.width || 4}px solid black;
+  border-radius: 40%;
 `
 
 export default class Separator extends Component {
@@ -40,7 +42,7 @@ export default class Separator extends Component {
     return (
       <Wrapper>
         <NameDate>{this.props.userfirstname}</NameDate>
-        <Line width={3} />
+        <Line width={this.props.width} />
         <NameDate>{`${postingday} ⭑ ${postingtime}`}</NameDate>
       </Wrapper>
     )

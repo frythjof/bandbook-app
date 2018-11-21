@@ -6,7 +6,7 @@ import { text, boolean, number } from '@storybook/addon-knobs'
 
 import TextArea from '../components/TextArea'
 import Button from '../components/Button'
-//import Separator from '../components/Separator'
+import Separator from '../components/Separator'
 import Message from '../components/Message'
 //import Song from '../components/Song'
 
@@ -23,13 +23,13 @@ storiesOf('Message', module).add('default', () => (
   </React.Fragment>
 ))
 
-// storiesOf('Separator', module).add('default', () => (
-//   <React.Fragment>
-//     <Separator text="One" />
-//     <StyleBox h={40} />
-//     <Separator text="Two words" />
-//   </React.Fragment>
-// ))
+storiesOf('Separator', module).add('default', () => (
+  <React.Fragment>
+    <Separator userfirstname="User1" />
+    <StyleBox h={40} />
+    <Separator width={number('Line width: ', 8)} userfirstname="User2" />
+  </React.Fragment>
+))
 
 // storiesOf('Song', module).add('default', () => (
 //   <React.Fragment>
