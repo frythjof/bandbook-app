@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import Message from './Message'
 import Button from './Button'
 import TextArea from './TextArea'
+import Separator from './Separator'
 
 const Wrapper = styled.section`
   display: grid;
@@ -51,7 +52,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <em>Bandbook</em> <Message text={'Hello band mates'} />
+        <em>Bandbook</em>
+        <Separator userfirstname={'Kai'} />
+        <Message text={'Hello band mates'} />
         <TextArea placeholder={'Write new message here'} />
         <Button text={'Add new message'} />{' '}
       </div>
