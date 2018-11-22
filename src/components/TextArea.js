@@ -13,7 +13,18 @@ const StyledTextarea = styled.textarea`
 `
 
 export default class TextArea extends Component {
+  handleChange(event) {
+    const textArea = event.target
+    this.props.tempText(textArea.value)
+    // textArea.value = ''
+    // textArea.focus()
+  }
   render() {
-    return <StyledTextarea placeholder={this.props.placeholder} />
+    return (
+      <StyledTextarea
+        placeholder={this.props.placeholder}
+        onChange={event => this.handleChange(event)}
+      />
+    )
   }
 }

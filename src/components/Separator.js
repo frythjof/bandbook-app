@@ -41,9 +41,11 @@ export default class Separator extends Component {
 
     return (
       <Wrapper>
-        <NameDate>{this.props.userfirstname}</NameDate>
+        <NameDate>{this.props.firstname}</NameDate>
         <Line width={this.props.width} />
-        <NameDate>{`${postingday} ⭑ ${postingtime}`}</NameDate>
+        <NameDate>
+          {this.props.timestamp || `${postingday} ⭑ ${postingtime}`}
+        </NameDate>
       </Wrapper>
     )
   }

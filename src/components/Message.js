@@ -16,10 +16,19 @@ export default class Message extends Component {
   }
 }
 
-// <span className="delete" onClick={onDelete}> &times; </span>
-//
-// .delete {
-//   &:hover {
-//     color: red;
-//   }
-// }
+// <DeleteButton className="delete" onClick={onDelete}>&times;</DeleteButton>
+
+// const DeleteButton = styled.button`
+//   margin-left: auto;
+//   background-color: deeppink;
+//   color: white;
+//   border-radius: 50%;
+//   padding: 2px 5px;
+//   font-weight: bold;
+
+//   .delete {
+//    &:hover {
+//      color: red;
+//    }
+//  }
+// `
