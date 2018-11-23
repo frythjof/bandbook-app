@@ -6,6 +6,13 @@ import Button from './Button'
 import TextArea from './TextArea'
 import Separator from './Separator'
 
+const Wrapper = styled.section`
+  display: grid;
+  /* grid-template-rows: auto 48px;
+  height: 80vh;
+  position: relative; */
+`
+
 const MessageWrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -13,10 +20,10 @@ const MessageWrapper = styled.section`
   justify-content: space-between;
   padding: 8px;
   background: #fefefe;
-  box-shadow: inset 2px 4px 4px #ddd;
+  box-shadow: 2px 4px 4px #ddd;
   border-radius: 5px;
   margin: 10px;
-  grid-gap: 5px;
+  grid-gap: 5px; */
 `
 
 const InputWrapper = styled.section`
@@ -24,8 +31,8 @@ const InputWrapper = styled.section`
   justify-content: space-between;
   align-items: center;
   margin: 10px;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
 `
 
 export default class HomeBoard extends Component {
@@ -54,16 +61,17 @@ export default class HomeBoard extends Component {
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <React.Fragment>{this.renderMessages()}</React.Fragment>
         <InputWrapper>
           <TextArea
             placeholder={'Write new message here'}
             tempText={text => this.insertingMessage(text)}
+            defaultValue={this.state.tempTextValue}
           />
           <Button text={'Post message'} onPost={this.postMessage} />{' '}
         </InputWrapper>
-      </div>
+      </Wrapper>
     )
   }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const TextWrapper = styled.span`
   display: flex;
@@ -9,6 +10,14 @@ const TextWrapper = styled.span`
 `
 
 export default class Message extends Component {
+  static propTypes = {
+    text: PropTypes.string
+  }
+
+  static defaultProps = {
+    text: '* no message *'
+  }
+
   render() {
     const { text } = this.props
 

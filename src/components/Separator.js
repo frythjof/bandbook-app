@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.section`
   display: grid;
@@ -20,6 +21,14 @@ const Line = styled.div`
 `
 
 export default class Separator extends Component {
+  static propTypes = {
+    //iconName: PropTypes.oneOf(['up', 'down','left', 'right']),
+    onPost: PropTypes.func.isRequired,
+    firstname: PropTypes.string.isRequired,
+    width: PropTypes.number,
+    timestamp: PropTypes.string.isRequired
+  }
+
   render() {
     const day = new Date().getDate()
     const month = new Date().getMonth()
