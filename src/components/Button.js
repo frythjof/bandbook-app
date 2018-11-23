@@ -18,7 +18,7 @@ export default class Button extends Component {
   }
 
   static defaultProps = {
-    text: 'Post message'
+    text: 'Add message'
   }
 
   render() {

@@ -27,8 +27,6 @@ export default class TextArea extends Component {
   handleChange(event) {
     const textArea = event.target
     this.props.tempText(textArea.value)
-    // textArea.value = ''
-    // textArea.focus()
   }
   render() {
     return (

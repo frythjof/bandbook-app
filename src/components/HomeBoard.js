@@ -53,7 +53,7 @@ export default class HomeBoard extends Component {
       {
         text: 'Hello all! Today is a beautiful day!',
         firstname: 'John',
-        timestamp: ''
+        timestamp: '22.11.2018 ⭑ 16:11'
       }
     ],
     tempTextValue: ''
@@ -84,7 +84,7 @@ export default class HomeBoard extends Component {
       <MessageWrapper>
         <Separator
           firstname={message.firstname}
-          width={0}
+          width={3}
           timestamp={message.timestamp}
         />
         <Message text={message.text} />
@@ -100,15 +100,36 @@ export default class HomeBoard extends Component {
   }
 
   postMessage = () => {
+    const day = new Date().getDate()
+    const month = new Date().getMonth()
+    const year = new Date().getFullYear()
+    const hour = new Date().getHours()
+    const minute = new Date().getMinutes()
+    const timestamp = new Date(year, month, day, hour, minute)
+    const dateoptions = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric'
+    }
+    const timeoptions = {
+      hour: 'numeric',
+      minute: 'numeric'
+    }
+    const postingday = timestamp.toLocaleDateString('de-DE', dateoptions)
+    const postingtime = timestamp.toLocaleTimeString('de-DE', timeoptions)
+
     const newText = this.state.tempTextValue
     this.setState({
       defaultMessages: [
         ...this.state.defaultMessages,
-        { text: newText, firstname: 'Kai', timestamp: '' }
+        {
+          text: newText,
+          firstname: 'Kai',
+          timestamp: `${postingday} ⭑ ${postingtime}`
+        }
       ],
       tempTextValue: ''
     })
-    // textArea.value = ''
     // textArea.focus()
   }
 }

@@ -30,31 +30,11 @@ export default class Separator extends Component {
   }
 
   render() {
-    const day = new Date().getDate()
-    const month = new Date().getMonth()
-    const year = new Date().getFullYear()
-    const hour = new Date().getHours()
-    const minute = new Date().getMinutes()
-    const timestamp = new Date(year, month, day, hour, minute)
-    const dateoptions = {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric'
-    }
-    const timeoptions = {
-      hour: 'numeric',
-      minute: 'numeric'
-    }
-    const postingday = timestamp.toLocaleDateString('de-DE', dateoptions)
-    const postingtime = timestamp.toLocaleTimeString('de-DE', timeoptions)
-
     return (
-      <Wrapper>
+      <Wrapper data-cy="Separator">
         <NameDate>{this.props.firstname}</NameDate>
         <Line width={this.props.width} />
-        <NameDate>
-          {this.props.timestamp || `${postingday} ⭑ ${postingtime}`}
-        </NameDate>
+        <NameDate>{this.props.timestamp}</NameDate>
       </Wrapper>
     )
   }

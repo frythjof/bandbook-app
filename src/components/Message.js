@@ -14,14 +14,10 @@ export default class Message extends Component {
     text: PropTypes.string
   }
 
-  static defaultProps = {
-    text: '* no message *'
-  }
-
   render() {
     const { text } = this.props
 
-    return <TextWrapper>{text}</TextWrapper>
+    return <TextWrapper data-cy="Message">{text}</TextWrapper>
   }
 }
 
