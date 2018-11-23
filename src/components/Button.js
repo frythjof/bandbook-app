@@ -23,7 +23,10 @@ export default class Button extends Component {
 
   render() {
     return (
-      <StyledButton onClick={event => this.props.onPost(event.target)}>
+      <StyledButton
+        data-cy="PostButton"
+        onClick={event => this.props.onPost(event.target)}
+      >
         {this.props.text}
       </StyledButton>
     )

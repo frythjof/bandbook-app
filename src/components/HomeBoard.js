@@ -8,22 +8,23 @@ import Separator from './Separator'
 
 const Wrapper = styled.section`
   display: grid;
-  /* grid-template-rows: auto 48px;
-  height: 80vh;
-  position: relative; */
+  grid-template-rows: auto 48px;
+  height: 100vh;
 `
-
-const MessageWrapper = styled.section`
+const MessagesContainer = styled.main`
+  overflow-y: scroll;
+`
+const SingleMessageWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   padding: 8px;
   background: #fefefe;
   box-shadow: 2px 4px 4px #ddd;
   border-radius: 5px;
   margin: 10px;
-  grid-gap: 5px; */
+  grid-gap: 5px;
 `
 
 const InputWrapper = styled.section`
@@ -53,7 +54,7 @@ export default class HomeBoard extends Component {
       {
         text: 'Hello all! Today is a beautiful day!',
         firstname: 'John',
-        timestamp: '22.11.2018 ⭑ 16:11'
+        timestamp: '22.11.2018 ⭑ 07:17'
       }
     ],
     tempTextValue: ''
@@ -61,8 +62,8 @@ export default class HomeBoard extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <React.Fragment>{this.renderMessages()}</React.Fragment>
+      <Wrapper data-cy="HomeBoard">
+        <MessagesContainer>{this.renderMessages()}</MessagesContainer>
         <InputWrapper>
           <TextArea
             placeholder={'Write new message here'}
@@ -81,14 +82,14 @@ export default class HomeBoard extends Component {
 
   renderSingleMessage = message => {
     return (
-      <MessageWrapper>
+      <SingleMessageWrapper>
         <Separator
           firstname={message.firstname}
           width={3}
           timestamp={message.timestamp}
         />
         <Message text={message.text} />
-      </MessageWrapper>
+      </SingleMessageWrapper>
     )
   }
 
@@ -100,12 +101,13 @@ export default class HomeBoard extends Component {
   }
 
   postMessage = () => {
-    const day = new Date().getDate()
-    const month = new Date().getMonth()
-    const year = new Date().getFullYear()
-    const hour = new Date().getHours()
-    const minute = new Date().getMinutes()
-    const timestamp = new Date(year, month, day, hour, minute)
+    // const day = new Date().getDate()
+    // const month = new Date().getMonth()
+    // const year = new Date().getFullYear()
+    // const hour = new Date().getHours()
+    // const minute = new Date().getMinutes()
+    // const timestamp = new Date(year, month, day, hour, minute)
+    const timestamp = new Date()
     const dateoptions = {
       year: 'numeric',
       month: 'numeric',
@@ -130,6 +132,7 @@ export default class HomeBoard extends Component {
       ],
       tempTextValue: ''
     })
+    console.log(timestamp)
     // textArea.focus()
   }
 }

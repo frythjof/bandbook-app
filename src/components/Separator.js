@@ -11,7 +11,7 @@ const Wrapper = styled.section`
 
 const NameDate = styled.em`
   white-space: nowrap;
-  margin: 0 10px;
+  margin: 0 5px;
 `
 
 const Line = styled.div`

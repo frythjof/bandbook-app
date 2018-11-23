@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const TextWrapper = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  text-align: left;
+  margin: 0 10px;
   cursor: default;
 `
 
