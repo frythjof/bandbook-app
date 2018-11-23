@@ -24,6 +24,7 @@ export default class TextArea extends Component {
       <StyledTextarea
         placeholder={this.props.placeholder}
         onChange={event => this.handleChange(event)}
+        // value={'Test'}
       />
     )
   }

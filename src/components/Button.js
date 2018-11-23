@@ -12,7 +12,9 @@ const StyledButton = styled.button`
 export default class Button extends Component {
   render() {
     return (
-      <StyledButton onClick={this.props.onPost}>{this.props.text}</StyledButton>
+      <StyledButton onClick={event => this.props.onPost(event.target)}>
+        {this.props.text}
+      </StyledButton>
     )
   }
 }

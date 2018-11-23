@@ -97,7 +97,8 @@ export default class HomeBoard extends Component {
       defaultMessages: [
         ...this.state.defaultMessages,
         { text: newText, firstname: 'Kai', timestamp: '' }
-      ]
+      ],
+      tempTextValue: ''
     })
     // textArea.value = ''
     // textArea.focus()
