@@ -12,7 +12,6 @@ const StyledButton = styled.button`
 
 export default class Button extends Component {
   static propTypes = {
-    //iconName: PropTypes.oneOf(['up', 'down','left', 'right']),
     onPost: PropTypes.func.isRequired,
     text: PropTypes.string
   }
@@ -25,7 +24,7 @@ export default class Button extends Component {
     return (
       <StyledButton
         data-cy="PostButton"
-        onClick={event => this.props.onPost(event.target)}
+        onClick={event => this.props.onButtonClick(event.target)}
       >
         {this.props.text}
       </StyledButton>

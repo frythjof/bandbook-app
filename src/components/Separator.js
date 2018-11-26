@@ -22,7 +22,6 @@ const Line = styled.div`
 
 export default class Separator extends Component {
   static propTypes = {
-    //iconName: PropTypes.oneOf(['up', 'down','left', 'right']),
     onPost: PropTypes.func.isRequired,
     firstname: PropTypes.string.isRequired,
     width: PropTypes.number,

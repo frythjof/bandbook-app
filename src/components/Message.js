@@ -20,20 +20,3 @@ export default class Message extends Component {
     return <TextWrapper data-cy="Message">{text}</TextWrapper>
   }
 }
-
-// <DeleteButton className="delete" onClick={onDelete}>&times;</DeleteButton>
-
-// const DeleteButton = styled.button`
-//   margin-left: auto;
-//   background-color: deeppink;
-//   color: white;
-//   border-radius: 50%;
-//   padding: 2px 5px;
-//   font-weight: bold;
-
-//   .delete {
-//    &:hover {
-//      color: red;
-//    }
-//  }
-// `

@@ -10,7 +10,7 @@ const StyledTextarea = styled.textarea`
   margin: 5px;
   padding: 6px;
   width: 100%;
-  cursor: default;
+  cursor: text;
 `
 
 export default class TextArea extends Component {
@@ -31,6 +31,7 @@ export default class TextArea extends Component {
   render() {
     return (
       <StyledTextarea
+        autoFocus
         placeholder={this.props.placeholder}
         onChange={event => this.handleChange(event)}
         value={this.props.defaultValue}

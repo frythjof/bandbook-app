@@ -67,7 +67,7 @@ export default class HomeBoard extends Component {
             updateTempTextValue={text => this.updateTempTextValue(text)}
             defaultValue={this.state.tempTextValue}
           />
-          <Button text={'Post message'} onPost={this.postMessage} />{' '}
+          <Button text={'Post message'} onButtonClick={this.postMessage} />{' '}
         </InputWrapper>
       </Wrapper>
     )
@@ -98,12 +98,6 @@ export default class HomeBoard extends Component {
   }
 
   postMessage = () => {
-    // const day = new Date().getDate()
-    // const month = new Date().getMonth()
-    // const year = new Date().getFullYear()
-    // const hour = new Date().getHours()
-    // const minute = new Date().getMinutes()
-    // const timestamp = new Date(year, month, day, hour, minute)
     const timestamp = new Date()
     const dateoptions = {
       year: 'numeric',
