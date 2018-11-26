@@ -9,7 +9,7 @@ import Separator from './Separator'
 const Wrapper = styled.section`
   display: grid;
   grid-template-rows: auto 48px;
-  height: 100vh;
+  height: 95vh;
 `
 const MessagesContainer = styled.main`
   overflow-y: scroll;
@@ -17,7 +17,6 @@ const MessagesContainer = styled.main`
 const SingleMessageWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: space-between;
   padding: 8px;
   background: #fefefe;
@@ -32,13 +31,11 @@ const InputWrapper = styled.section`
   justify-content: space-between;
   align-items: center;
   margin: 10px;
-  /* position: absolute;
-  bottom: 0; */
 `
 
 export default class HomeBoard extends Component {
   state = {
-    defaultMessages: [
+    messages: [
       {
         text:
           'Hello band mates! What`s up? Does our rehearsal take place today? Cheers!',
@@ -47,7 +44,7 @@ export default class HomeBoard extends Component {
       },
       {
         text:
-          'Hello buddy! All tight and shit! Absolutely, we`re gonna jam like hell later on!',
+          'Hello buddy! Everything`s alright! Yeah, we`re gonna jam like hell later on!',
         firstname: 'Jim',
         timestamp: '21.11.2018 ⭑ 12:41'
       },
@@ -67,7 +64,7 @@ export default class HomeBoard extends Component {
         <InputWrapper>
           <TextArea
             placeholder={'Write new message here'}
-            tempText={text => this.insertingMessage(text)}
+            updateTempTextValue={text => this.updateTempTextValue(text)}
             defaultValue={this.state.tempTextValue}
           />
           <Button text={'Post message'} onPost={this.postMessage} />{' '}
@@ -77,7 +74,7 @@ export default class HomeBoard extends Component {
   }
 
   renderMessages() {
-    return this.state.defaultMessages.map(this.renderSingleMessage)
+    return this.state.messages.map(this.renderSingleMessage)
   }
 
   renderSingleMessage = message => {
@@ -93,7 +90,7 @@ export default class HomeBoard extends Component {
     )
   }
 
-  insertingMessage = text => {
+  updateTempTextValue = text => {
     this.setState({
       ...this.state,
       tempTextValue: text
@@ -122,8 +119,8 @@ export default class HomeBoard extends Component {
 
     const newText = this.state.tempTextValue
     this.setState({
-      defaultMessages: [
-        ...this.state.defaultMessages,
+      messages: [
+        ...this.state.messages,
         {
           text: newText,
           firstname: 'Kai',

@@ -26,7 +26,7 @@ export default class TextArea extends Component {
 
   handleChange(event) {
     const textArea = event.target
-    this.props.tempText(textArea.value)
+    this.props.updateTempTextValue(textArea.value)
   }
   render() {
     return (
