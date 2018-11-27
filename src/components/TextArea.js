@@ -10,7 +10,6 @@ const StyledTextarea = styled.textarea`
   margin: 5px;
   padding: 6px;
   width: 100%;
-  cursor: text;
 `
 
 export default class TextArea extends Component {

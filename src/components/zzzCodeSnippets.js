@@ -1,6 +1,8 @@
 //import uid from 'uid'
 //import Route2 from './Route2'
 
+// main.scrollTop = main.scrollHeight - main.getBoundingClientRect().height
+
 // <DeleteButton className="delete" onClick={onDelete}>&times;</DeleteButton>
 
 // const DeleteButton = styled.button`
@@ -24,6 +26,18 @@
 // const hour = new Date().getHours()
 // const minute = new Date().getMinutes()
 // const timestamp = new Date(year, month, day, hour, minute)
+
+// const dateoptions = {
+//     year: 'numeric',
+//     month: 'numeric',
+//     day: 'numeric'
+//   }
+//   const timeoptions = {
+//     hour: 'numeric',
+//     minute: 'numeric'
+//   }
+//   const postingday = timestamp.toLocaleDateString('de-DE', dateoptions)
+//   const postingtime = timestamp.toLocaleTimeString('de-DE', timeoptions)
 
 // static propTypes = {
 //     iconName: PropTypes.oneOf(['up', 'down','left', 'right']),

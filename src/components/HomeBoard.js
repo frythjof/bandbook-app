@@ -99,17 +99,8 @@ export default class HomeBoard extends Component {
 
   postMessage = () => {
     const timestamp = new Date()
-    const dateoptions = {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric'
-    }
-    const timeoptions = {
-      hour: 'numeric',
-      minute: 'numeric'
-    }
-    const postingday = timestamp.toLocaleDateString('de-DE', dateoptions)
-    const postingtime = timestamp.toLocaleTimeString('de-DE', timeoptions)
+    const postingday = timestamp.toLocaleDateString('de-DE')
+    const postingtime = timestamp.toLocaleTimeString('de-DE')
 
     const newText = this.state.tempTextValue
     this.setState({
@@ -123,7 +114,5 @@ export default class HomeBoard extends Component {
       ],
       tempTextValue: ''
     })
-    console.log(timestamp)
-    // textArea.focus()
   }
 }
