@@ -13,14 +13,24 @@ const StyledTextarea = styled.textarea`
 `
 
 export default class TextArea extends Component {
+  textArea = React.createRef()
+
   static propTypes = {
-    tempText: PropTypes.func.isRequired,
+    updateTempTextValue: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
     defaultValue: PropTypes.string
   }
 
   static defaultProps = {
-    placeholder: 'Add your message here'
+    placeholder: 'Add your message here ...'
+  }
+
+  componentDidMount = () => {
+    this.textArea.current.focus()
+  }
+
+  componentDidUpdate = () => {
+    this.textArea.current.focus()
   }
 
   handleChange(event) {
@@ -31,6 +41,7 @@ export default class TextArea extends Component {
     return (
       <StyledTextarea
         autoFocus
+        ref={this.textArea}
         placeholder={this.props.placeholder}
         onChange={event => this.handleChange(event)}
         value={this.props.defaultValue}

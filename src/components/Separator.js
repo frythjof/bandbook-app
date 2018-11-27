@@ -22,7 +22,6 @@ const Line = styled.div`
 
 export default class Separator extends Component {
   static propTypes = {
-    onPost: PropTypes.func.isRequired,
     firstname: PropTypes.string.isRequired,
     width: PropTypes.number,
     timestamp: PropTypes.string.isRequired

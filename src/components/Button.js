@@ -12,7 +12,7 @@ const StyledButton = styled.button`
 
 export default class Button extends Component {
   static propTypes = {
-    onPost: PropTypes.func.isRequired,
+    onButtonClick: PropTypes.func.isRequired,
     text: PropTypes.string
   }
 

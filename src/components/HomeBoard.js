@@ -34,23 +34,46 @@ const InputWrapper = styled.section`
 `
 
 export default class HomeBoard extends Component {
+  main = React.createRef()
+
   state = {
     messages: this.load(),
     tempTextValue: ''
+  }
+
+  componentDidMount = () => {
+    this.main.current.scrollTop =
+      this.main.current.scrollHeight -
+      this.main.current.getBoundingClientRect().height
+  }
+
+  componentDidUpdate = () => {
+    this.main.current.scrollTop =
+      this.main.current.scrollHeight -
+      this.main.current.getBoundingClientRect().height
   }
 
   render() {
     this.save()
     return (
       <Wrapper data-cy="HomeBoard">
-        <MessagesContainer>{this.renderMessages()}</MessagesContainer>
+        <MessagesContainer ref={this.main}>
+          {this.renderMessages()}
+        </MessagesContainer>
         <InputWrapper>
           <TextArea
-            placeholder={'Write new message here'}
+            placeholder={this.state.textAreaPlaceholder}
             updateTempTextValue={text => this.updateTempTextValue(text)}
             defaultValue={this.state.tempTextValue}
           />
-          <Button text={'Post message'} onButtonClick={this.postMessage} />{' '}
+          <Button
+            text={'Post message'}
+            onButtonClick={
+              this.state.tempTextValue !== ''
+                ? this.postMessage
+                : this.preventPostEmptyMessage
+            }
+          />{' '}
         </InputWrapper>
       </Wrapper>
     )
@@ -80,6 +103,13 @@ export default class HomeBoard extends Component {
     })
   }
 
+  preventPostEmptyMessage = () => {
+    this.setState({
+      ...this.state,
+      textAreaPlaceholder: 'Please enter your message first !'
+    })
+  }
+
   postMessage = () => {
     const timestamp = new Date()
     const timeoptions = {
@@ -99,7 +129,8 @@ export default class HomeBoard extends Component {
           timestamp: `${postingday} ⭑ ${postingtime}`
         }
       ],
-      tempTextValue: ''
+      tempTextValue: '',
+      textAreaPlaceholder: 'Write new message here ...'
     })
   }
 
