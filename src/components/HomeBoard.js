@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import defaultMessages from '../data/default-messages.json'
 import Message from './Message'
 import Button from './Button'
 import TextArea from './TextArea'
@@ -35,29 +35,12 @@ const InputWrapper = styled.section`
 
 export default class HomeBoard extends Component {
   state = {
-    messages: [
-      {
-        text:
-          'Hello band mates! What`s up? Does our rehearsal take place today? Cheers!',
-        firstname: 'Joe',
-        timestamp: '21.11.2018 ⭑ 11:29'
-      },
-      {
-        text:
-          'Hello buddy! Everything`s alright! Yeah, we`re gonna jam like hell later on!',
-        firstname: 'Jim',
-        timestamp: '21.11.2018 ⭑ 12:41'
-      },
-      {
-        text: 'Hello all! Today is a beautiful day!',
-        firstname: 'John',
-        timestamp: '22.11.2018 ⭑ 07:17'
-      }
-    ],
+    messages: this.load(),
     tempTextValue: ''
   }
 
   render() {
+    this.save()
     return (
       <Wrapper data-cy="HomeBoard">
         <MessagesContainer>{this.renderMessages()}</MessagesContainer>
@@ -99,8 +82,12 @@ export default class HomeBoard extends Component {
 
   postMessage = () => {
     const timestamp = new Date()
+    const timeoptions = {
+      hour: 'numeric',
+      minute: 'numeric'
+    }
     const postingday = timestamp.toLocaleDateString('de-DE')
-    const postingtime = timestamp.toLocaleTimeString('de-DE')
+    const postingtime = timestamp.toLocaleTimeString('de-DE', timeoptions)
 
     const newText = this.state.tempTextValue
     this.setState({
@@ -114,5 +101,23 @@ export default class HomeBoard extends Component {
       ],
       tempTextValue: ''
     })
+  }
+
+  save() {
+    localStorage.setItem(
+      'bandbook-app--messages',
+      JSON.stringify(this.state.messages)
+    )
+  }
+
+  load() {
+    try {
+      return (
+        JSON.parse(localStorage.getItem('bandbook-app--messages')) ||
+        defaultMessages
+      )
+    } catch (err) {
+      return defaultMessages
+    }
   }
 }
