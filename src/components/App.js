@@ -6,60 +6,10 @@ import HomeBoard from './HomeBoard'
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: auto 50px;
-  height: 95vh;
-`
+  grid-template-rows: 20px auto 40px;
+  height: 100vh;
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <em>
-          <strong>Bandbook</strong>
-        </em>
-        <HomeBoard />
-      </div>
-      // <Router>
-      //   <Wrapper>
-      //     <Route
-      //       exact
-      //       path="/"
-      //       render={() => <Home showDoneTodos={this.state.showDoneTodos} />}
-      //     />
-      //     <Route
-      //       path="/config"
-      //       render={() => (
-      //         <Route2
-      //           showDoneTodos={this.state.showDoneTodos}
-      //           onToggle={this.toggleShowDoneTodos}
-      //         />
-      //       )}
-      //     />
-      //     <nav>
-      //       <NavLink exact activeClassName="active" to="/">
-      //         Home
-      //       </NavLink>
-      //       <NavLink activeClassName="active" to="/route2">
-      //         Route2
-      //       </NavLink>
-      //     </nav>
-      //   </Wrapper>
-      // </Router>
-    )
-  }
-}
-
-// state = {
-//   showDoneTodos: true
-// }
-
-// toggleShowDoneTodos = () => {
-//   this.setState({
-//     showDoneTodos: !this.state.showDoneTodos
-//   })
-// }
-
-/* nav {
+  /* nav {
     display: flex;
   }
 
@@ -77,7 +27,57 @@ export default class App extends Component {
     }
 
     &.active {
-      background: deeppink;
+      background: black;
       color: white;
     }
   } */
+`
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <em>
+          <strong>Bandbook</strong>
+        </em>
+        <HomeBoard />
+      </div>
+      // <Router>
+      //   <Wrapper>
+      //     <Route
+      //       exact
+      //       path="/"
+      //       render={() => <HomeBoard />}
+      //     />
+      //     <Route
+      //       path="/repertoire"
+      //       render={() => (
+      //         <RepertoireList />
+      //       )}
+      //     />
+      //     <nav>
+      //       <NavLink exact activeClassName="active" to="/">
+      //         Messages
+      //       </NavLink>
+      //       <NavLink activeClassName="active" to="/repertoire">
+      //         Songs
+      //       </NavLink>
+      //     </nav>
+      //   </Wrapper>
+      // </Router>
+    )
+  }
+}
+
+// state = {
+//   showDoneTodos: true
+// }
+
+// toggleShowDoneTodos = () => {
+//   this.setState({
+//     showDoneTodos: !this.state.showDoneTodos
+//   })
+// }
+//         <Route1
+//           showDoneTodos={this.state.showDoneTodos}
+//           onToggle={this.toggleShowDoneTodos} />

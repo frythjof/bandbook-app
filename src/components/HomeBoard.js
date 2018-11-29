@@ -9,7 +9,7 @@ import Separator from './Separator'
 const Wrapper = styled.section`
   display: grid;
   grid-template-rows: auto 48px;
-  height: 95vh;
+  height: 90vh;
 `
 const MessagesContainer = styled.main`
   overflow-y: scroll;
