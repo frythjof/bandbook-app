@@ -41,7 +41,7 @@ storiesOf('ui/TextArea', module).add('default', () => (
   <React.Fragment>
     <TextArea
       placeholder={text('Placeholder', 'Write new message here')}
-      //onChange={action('change tempTextValue in state')}
+      updateTempTextValue={action('change tempTextValue in state')}
     />
   </React.Fragment>
 ))

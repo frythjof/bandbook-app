@@ -13,7 +13,7 @@ describe('App', () => {
       cy.get('[data-cy="Message"]').should('have.length', 3)
     })
 
-    it('has a one Separators with Text Joe', () => {
+    it('has a one Separator with Text Joe', () => {
       cy.get('[data-cy="Separator"]')
         .contains('Joe')
         .should('have.length', 1)
@@ -22,7 +22,7 @@ describe('App', () => {
     describe('InputWrapper', () => {
       // hinter das describe ".only" schreiben, damit nur der InputWrapper getestet wird.
       it('has an input', () => {
-        cy.get('textarea[placeholder="Write new message here"]').should(
+        cy.get('textarea[placeholder="Add your message here ..."]').should(
           'have.length',
           1
         )
