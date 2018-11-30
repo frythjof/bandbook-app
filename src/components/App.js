@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import HomeBoard from './HomeBoard'
+import SongList from './SongList'
 
 const Wrapper = styled.section`
   display: grid;
   grid-template-rows: 20px auto 40px;
   height: 100vh;
 
-  /* nav {
+  nav {
     display: flex;
   }
 
@@ -30,41 +31,32 @@ const Wrapper = styled.section`
       background: black;
       color: white;
     }
-  } */
+  }
 `
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <em>
-          <strong>Bandbook</strong>
-        </em>
-        <HomeBoard />
-      </div>
-      // <Router>
-      //   <Wrapper>
-      //     <Route
-      //       exact
-      //       path="/"
-      //       render={() => <HomeBoard />}
-      //     />
-      //     <Route
-      //       path="/repertoire"
-      //       render={() => (
-      //         <RepertoireList />
-      //       )}
-      //     />
-      //     <nav>
-      //       <NavLink exact activeClassName="active" to="/">
-      //         Messages
-      //       </NavLink>
-      //       <NavLink activeClassName="active" to="/repertoire">
-      //         Songs
-      //       </NavLink>
-      //     </nav>
-      //   </Wrapper>
-      // </Router>
+      <Router>
+        <Wrapper>
+          <div>
+            <em>
+              <strong>Bandbook</strong>
+            </em>
+          </div>
+
+          <Route exact path="/" render={() => <HomeBoard />} />
+          <Route path="/repertoire" render={() => <SongList />} />
+          <nav>
+            <NavLink exact activeClassName="active" to="/">
+              Messages
+            </NavLink>
+            <NavLink activeClassName="active" to="/repertoire">
+              Songs
+            </NavLink>
+          </nav>
+        </Wrapper>
+      </Router>
     )
   }
 }
