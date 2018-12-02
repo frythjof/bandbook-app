@@ -7,6 +7,7 @@ const Wrapper = styled.section`
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   background: ${props => props.background || 'transparent'};
+  color: #717275;
 `
 
 const NameDate = styled.em`
@@ -16,7 +17,7 @@ const NameDate = styled.em`
 
 const Line = styled.div`
   width: 100%;
-  border-bottom: ${props => props.width || 4}px solid black;
+  border-bottom: ${props => props.width || 4}px solid #717275;
   border-radius: 40%;
 `
 

@@ -2,16 +2,36 @@
   {
     "text": "Hello band mates! What`s up? Does our rehearsal take place today? Cheers!",
     "firstname": "Joe",
-    "timestamp": "21.11.2018 ⭑ 11:29"
+    "timestamp": "21.11.2018 ⭑ 15:29"
   },
   {
-    "text": "Hello buddy! Everything`s alright! Yeah, we`re gonna jam like hell later on!",
+    "text": "Hello buddy! Everything`s alright! Yeah, we`re gonna jam like crazy later on! :)",
     "firstname": "Jim",
-    "timestamp": "21.11.2018 ⭑ 12:41"
+    "timestamp": "21.11.2018 ⭑ 16:41"
   },
   {
-    "text": "Hello all! Today is a beautiful day!",
+    "text": "Wow, what a great band practice tonight! Our new song will certainly be a hit! ;)",
+    "firstname": "Jim",
+    "timestamp": "22.11.2018 ⭑ 01:34"
+  },
+  {
+    "text": "Hi mates! Today is a beautiful day!",
     "firstname": "John",
-    "timestamp": "22.11.2018 ⭑ 07:17"
+    "timestamp": "27.11.2018 ⭑ 10:17"
+  },
+  {
+    "text": "Absolutely, do you feel like going to the park and chill?",
+    "firstname": "Jim",
+    "timestamp": "27.11.2018 ⭑ 11:33"
+  },
+  {
+    "text": "That's a great idea, Jim! Do you want me to pick you up in an hour?",
+    "firstname": "John",
+    "timestamp": "27.11.2018 ⭑ 11:45"
+  },
+  {
+    "text": "Awesome, I'm going to fetch some cold drinks for us and will await you eagerly!",
+    "firstname": "Jim",
+    "timestamp": "27.11.2018 ⭑ 11:52"
   }
 ]

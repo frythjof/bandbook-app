@@ -60,16 +60,3 @@ export default class App extends Component {
     )
   }
 }
-
-// state = {
-//   showDoneTodos: true
-// }
-
-// toggleShowDoneTodos = () => {
-//   this.setState({
-//     showDoneTodos: !this.state.showDoneTodos
-//   })
-// }
-//         <Route1
-//           showDoneTodos={this.state.showDoneTodos}
-//           onToggle={this.toggleShowDoneTodos} />
