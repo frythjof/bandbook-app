@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import HomeBoard from './HomeBoard'
 import SongList from './SongList'
-import Header from './Header'
 
 const Wrapper = styled.section`
   display: grid;
