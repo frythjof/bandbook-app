@@ -22,6 +22,7 @@ const Wrapper = styled.section`
     color: black;
     width: 100%;
     background: #efefef;
+    border-top: 2px solid white;
 
     &:first-child {
       border-right: 1px solid white;
