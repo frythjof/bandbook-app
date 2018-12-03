@@ -5,10 +5,11 @@ import Message from './Message'
 import Button from './Button'
 import TextArea from './TextArea'
 import Separator from './Separator'
+import Header from './Header'
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: auto 48px;
+  grid-template-rows: 48px auto 48px;
   height: 90vh;
 `
 const MessagesContainer = styled.main`
@@ -57,6 +58,7 @@ export default class HomeBoard extends Component {
     this.save()
     return (
       <Wrapper data-cy="HomeBoard">
+        <Header title="Messages" />
         <MessagesContainer ref={this.main}>
           {this.renderMessages()}
         </MessagesContainer>

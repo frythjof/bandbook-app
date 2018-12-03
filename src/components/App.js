@@ -4,11 +4,16 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import HomeBoard from './HomeBoard'
 import SongList from './SongList'
+import Header from './Header'
 
 const Wrapper = styled.section`
   display: grid;
   grid-template-rows: 20px auto 40px;
   height: 100vh;
+
+  div {
+    color: whitesmoke;
+  }
 
   nav {
     display: flex;
@@ -19,17 +24,18 @@ const Wrapper = styled.section`
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
     width: 100%;
-    background: #efefef;
+    background: transparent;
+    /* background: #efefef; */
     border-top: 2px solid white;
 
     &:first-child {
-      border-right: 1px solid white;
+      border-right: 2px solid whitesmoke;
     }
 
     &.active {
-      background: black;
+      background-color: #000000bb;
       color: white;
     }
   }
@@ -50,10 +56,10 @@ export default class App extends Component {
           <Route path="/repertoire" render={() => <SongList />} />
           <nav>
             <NavLink exact activeClassName="active" to="/">
-              Messages
+              <strong>Messages</strong>
             </NavLink>
             <NavLink activeClassName="active" to="/repertoire">
-              Songs
+              <strong>Songs</strong>
             </NavLink>
           </nav>
         </Wrapper>

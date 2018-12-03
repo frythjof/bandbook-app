@@ -15,7 +15,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: #efefef;
+  /* background: #efefef; */
+  background-image: url("https://source.unsplash.com/400x700/?music,musician");
 
 }
 `

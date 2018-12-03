@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Header from './Header'
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: auto 48px;
+  grid-template-rows: 48px auto 48px;
   height: 90vh;
 `
 const SongsContainer = styled.ul`
@@ -37,6 +38,7 @@ export default class SongList extends Component {
 
     return (
       <Wrapper data-cy="SongList">
+        <Header title="Songs" />
         <SongsContainer>
           <SingleSongWrapper>Song 1</SingleSongWrapper>
           <SingleSongWrapper>Song 2</SingleSongWrapper>
