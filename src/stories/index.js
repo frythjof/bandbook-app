@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { text, boolean, number } from '@storybook/addon-knobs'
 
 import TextArea from '../components/TextArea'
-import Button from '../components/Button'
+import SubmitButton from '../components/SubmitButton'
 import Separator from '../components/Separator'
 import Message from '../components/Message'
 //import XY from '../components/XY'
@@ -28,9 +28,9 @@ storiesOf('Separator', module).add('default', () => (
   </React.Fragment>
 ))
 
-storiesOf('ui/Button', module).add('default', () => (
+storiesOf('ui/SubmitButton', module).add('default', () => (
   <React.Fragment>
-    <Button
+    <SubmitButton
       text={text('Label', 'Post message')}
       onButtonClick={action('onButtonClick')}
     />

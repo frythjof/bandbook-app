@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import defaultMessages from '../data/default-messages.json'
 import Message from './Message'
-import Button from './Button'
+import SubmitButton from './SubmitButton'
 import TextArea from './TextArea'
 import Separator from './Separator'
 import Header from './Header'
@@ -68,7 +68,7 @@ export default class HomeBoard extends Component {
             updateTempTextValue={text => this.updateTempTextValue(text)}
             defaultValue={this.state.tempTextValue}
           />
-          <Button
+          <SubmitButton
             text={'Post message'}
             onButtonClick={
               this.state.tempTextValue !== ''

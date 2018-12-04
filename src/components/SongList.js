@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
+import uid from 'uid'
 import defaultSongs from '../data/default-songs.json'
 import Header from './Header'
-import Separator from './Separator'
+import SongCard from './SongCard'
 import Message from './Message'
 
 const Wrapper = styled.section`
@@ -29,20 +30,20 @@ const SingleSongWrapper = styled.section`
 
 export default class SongList extends Component {
   state = {
-    songs: this.load(),
-    id: ''
+    songs: this.createSongArray()
   }
 
-  static propTypes = {
-    text: PropTypes.string
-  }
-
-  static defaultProps = {
-    name: 'Song XY'
+  createSongArray() {
+    return this.load()
+      .map(item => ({
+        ...item,
+        inProgress: false,
+        id: uid()
+      }))
+      .sort((a, b) => (a.name < b.name ? -1 : 1))
   }
 
   render() {
-    const { text } = this.props
     this.save()
     return (
       <Wrapper data-cy="SongList">
@@ -59,11 +60,7 @@ export default class SongList extends Component {
   renderSingleSong = song => {
     return (
       <SingleSongWrapper>
-        <Separator
-          firstname={song.name}
-          width={3}
-          timestamp={`${song.tempo}bpm`}
-        />
+        <SongCard name={song.name} tempo={song.tempo} width={3} />
         <Message text={song.key} />
       </SingleSongWrapper>
     )
@@ -72,7 +69,7 @@ export default class SongList extends Component {
   save() {
     localStorage.setItem(
       'bandbook-app--songs',
-      JSON.stringify(this.state.messages)
+      JSON.stringify(this.state.songs)
     )
   }
 
