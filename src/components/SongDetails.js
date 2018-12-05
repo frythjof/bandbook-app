@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const StyledSongDetails = styled.section`
-  max-height: 0;
+  max-height: 200px;
   overflow: hidden;
   transition: all 0.3s ease;
-  margin: 0px 10px 0 10px;
-  padding-top: 8px;
-  display: grid;
+  margin: 0 5px 5px 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px;
+  display: none;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-gap: 8px;
@@ -18,7 +20,7 @@ const StyledSongDetails = styled.section`
     'url url'
     '. .';
   &.visible {
-    max-height: 300px;
+    display: grid;
     transition: all 0.5s ease;
   }
 `
@@ -42,7 +44,12 @@ const URL = styled.a`
 
 export default class SongDetails extends Component {
   static propTypes = {
-    musicKey: PropTypes.string
+    musicKey: PropTypes.string,
+    timeSignature: PropTypes.string,
+    duration: PropTypes.string,
+    date: PropTypes.string,
+    url: PropTypes.string,
+    showSongDetails: PropTypes.bool.isRequired
   }
 
   render() {
@@ -58,7 +65,7 @@ export default class SongDetails extends Component {
     return (
       <StyledSongDetails
         data-cy="SongDetails"
-        className={showSongDetails ? 'visible' : 'visible'}
+        className={showSongDetails ? 'visible' : null}
       >
         <Key>{musicKey}</Key>
         <TimeSignature>{timeSignature}</TimeSignature>

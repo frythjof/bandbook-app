@@ -10,7 +10,7 @@ const Wrapper = styled.section`
   grid-template-rows: 20px auto 40px;
   height: 100vh;
 
-  div {
+  span {
     color: whitesmoke;
   }
 
@@ -46,11 +46,11 @@ export default class App extends Component {
     return (
       <Router>
         <Wrapper>
-          <div>
+          <span>
             <em>
               <strong>Bandbook</strong>
             </em>
-          </div>
+          </span>
 
           <Route exact path="/" render={() => <HomeBoard />} />
           <Route path="/repertoire" render={() => <SongList />} />

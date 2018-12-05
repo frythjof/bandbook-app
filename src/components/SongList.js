@@ -5,7 +5,6 @@ import uid from 'uid'
 import defaultSongs from '../data/default-songs.json'
 import Header from './Header'
 import SongCard from './SongCard'
-import Message from './Message'
 import SongDetails from './SongDetails.js'
 
 const Wrapper = styled.section`
@@ -15,7 +14,6 @@ const Wrapper = styled.section`
 `
 const SongsContainer = styled.main`
   overflow-y: scroll;
-  /* padding-inline-start: 0px; */
 `
 const SingleSongWrapper = styled.section`
   display: flex;
@@ -62,9 +60,12 @@ export default class SongList extends Component {
     return (
       <SingleSongWrapper>
         <SongCard
+          key={song.id}
           name={song.name}
           tempo={song.tempo}
           inProgress={song.inProgress}
+          onToggle={() => this.toggleSongDetails(song.id)}
+          showSongDetails={song.showSongDetails}
         />
         <SongDetails
           musicKey={song.key}
@@ -72,11 +73,25 @@ export default class SongList extends Component {
           duration={song.duration}
           date={song.date}
           url={song.url}
-          inProgress={song.inProgress}
+          // inProgress={song.inProgress}
           showSongDetails={song.showSongDetails}
         />
       </SingleSongWrapper>
     )
+  }
+
+  toggleSongDetails = id => {
+    const { songs } = this.state
+    const index = songs.findIndex(s => s.id === id)
+    const newSongs = [
+      ...songs.slice(0, index),
+      { ...songs[index], showSongDetails: !songs[index].showSongDetails },
+      ...songs.slice(index + 1)
+    ]
+
+    this.setState({
+      songs: newSongs
+    })
   }
 
   save() {

@@ -64,6 +64,7 @@ export default class BpmButton extends Component {
       metronomeRunning: true
     })
     this.startMetronome()
+    //<audio HTML-Tag>
     console.log('Tick')
     console.log(this.props.tempo)
   }

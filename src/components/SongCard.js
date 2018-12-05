@@ -11,7 +11,7 @@ const Wrapper = styled.section`
   background: ${props => props.background || 'transparent'};
 `
 
-const SongName = styled.span`
+const SongName = styled.section`
   white-space: nowrap;
   margin: 0 5px;
   &.song-in-progress {
@@ -22,7 +22,10 @@ const SongName = styled.span`
 export default class SongCard extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    tempo: PropTypes.number.isRequired
+    tempo: PropTypes.number.isRequired,
+    inProgress: PropTypes.bool.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    showSongDetails: PropTypes.bool.isRequired
   }
 
   static defaultProps = {
@@ -30,17 +33,15 @@ export default class SongCard extends Component {
   }
 
   render() {
-    const { name, tempo, inProgress } = this.props
+    const { inProgress, name, tempo, onToggle, showSongDetails } = this.props
     return (
       <Wrapper data-cy="SongCard">
         <SongName className={inProgress ? 'song-in-progress' : null}>
           {name}
         </SongName>
         <BpmButton tempo={tempo} />
-        <ToggleButton />
+        <ToggleButton onToggle={onToggle} showSongDetails={showSongDetails} />
       </Wrapper>
     )
   }
 }
-
-// onToggle={this.toggleSongDetails}
