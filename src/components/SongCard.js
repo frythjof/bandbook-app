@@ -6,7 +6,7 @@ import BpmButton from './BpmButton'
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-columns: 4fr 3fr 1fr;
   align-items: center;
   background: ${props => props.background || 'transparent'};
 `
@@ -14,6 +14,9 @@ const Wrapper = styled.section`
 const SongName = styled.span`
   white-space: nowrap;
   margin: 0 5px;
+  &.song-in-progress {
+    color: red;
+  }
 `
 
 export default class SongCard extends Component {
@@ -27,10 +30,12 @@ export default class SongCard extends Component {
   }
 
   render() {
-    const { name, tempo, width } = this.props
+    const { name, tempo, inProgress } = this.props
     return (
       <Wrapper data-cy="SongCard">
-        <SongName>{name}</SongName>
+        <SongName className={inProgress ? 'song-in-progress' : null}>
+          {name}
+        </SongName>
         <BpmButton tempo={tempo} />
         <ToggleButton />
       </Wrapper>

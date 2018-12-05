@@ -9,8 +9,8 @@ describe('App', () => {
   })
 
   describe('HomeBoard', () => {
-    it('has three Messages at start', () => {
-      cy.get('[data-cy="Message"]').should('have.length', 3)
+    it('has seven Messages at start', () => {
+      cy.get('[data-cy="Message"]').should('have.length', 7)
     })
 
     it('has a one Separator with Text Joe', () => {

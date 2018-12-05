@@ -1,92 +1,112 @@
 [
   {
     "name": "Song B",
-    "tempo": "60",
+    "tempo": 60,
     "key": "C",
     "timeSignature": "4/4",
     "duration": "02:11",
     "date": "22.11.2018",
-    "url": "https://www.dropbox.com/s/songB"
+    "url": "https://www.dropbox.com/s/songB",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
     "name": "Song H",
-    "tempo": "70",
+    "tempo": 70,
     "key": "C#",
     "timeSignature": "3/4",
     "duration": "02:22",
     "date": "23.11.2018",
-    "url": "https://www.dropbox.com/s/songH"
+    "url": "https://www.dropbox.com/s/songH",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
     "name": "Song C",
-    "tempo": "80",
+    "tempo": 80,
     "key": "Dm",
     "timeSignature": "2/4",
     "duration": "03:33",
     "date": "24.11.2018",
-    "url": "https://www.dropbox.com/s/songC"
+    "url": "https://www.dropbox.com/s/songC",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
     "name": "Song A",
-    "tempo": "90",
+    "tempo": 90,
     "key": "Eb",
     "timeSignature": "5/4",
     "duration": "04:44",
     "date": "25.11.2018",
-    "url": "https://www.dropbox.com/s/songA"
+    "url": "https://www.dropbox.com/s/songA",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
     "name": "Song Z",
-    "tempo": "100",
+    "tempo": 100,
     "key": "Em",
     "timeSignature": "12/8",
     "duration": "05:55",
     "date": "26.11.2018",
-    "url": "https://www.dropbox.com/s/songZ"
+    "url": "https://www.dropbox.com/s/songZ",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
     "name": "Song U",
-    "tempo": "110",
+    "tempo": 110,
     "key": "F",
     "timeSignature": "3/4",
     "duration": "03:44",
     "date": "27.11.2018",
-    "url": "https://www.dropbox.com/s/songU"
+    "url": "https://www.dropbox.com/s/songU",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
     "name": "Song X",
-    "tempo": "120",
+    "tempo": 120,
     "key": "Gm",
     "timeSignature": "4/4",
     "duration": "02:58",
     "date": "28.11.2018",
-    "url": "https://www.dropbox.com/s/songX"
+    "url": "https://www.dropbox.com/s/songX",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
-    "name": "Song L",
-    "tempo": "130",
+    "name": "Song P",
+    "tempo": 130,
     "key": "A#",
     "timeSignature": "4/4",
     "duration": "04:10",
     "date": "29.11.2018",
-    "url": "https://www.dropbox.com/s/songL"
+    "url": "https://www.dropbox.com/s/songP",
+    "inProgress": true,
+    "showSongDetails": false
   },
   {
     "name": "Song S",
-    "tempo": "140",
+    "tempo": 140,
     "key": "Bb",
     "timeSignature": "5/4",
     "duration": "03:27",
     "date": "30.11.2018",
-    "url": "https://www.dropbox.com/s/songS"
+    "url": "https://www.dropbox.com/s/songS",
+    "inProgress": false,
+    "showSongDetails": false
   },
   {
     "name": "Song Y",
-    "tempo": "150",
+    "tempo": 150,
     "key": "Bm",
     "timeSignature": "4/4",
     "duration": "04:08",
     "date": "01.12.2018",
-    "url": "https://www.dropbox.com/s/songY"
+    "url": "https://www.dropbox.com/s/songY",
+    "inProgress": false,
+    "showSongDetails": false
   }
 ]

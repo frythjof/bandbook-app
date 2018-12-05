@@ -6,21 +6,22 @@ import defaultSongs from '../data/default-songs.json'
 import Header from './Header'
 import SongCard from './SongCard'
 import Message from './Message'
+import SongDetails from './SongDetails.js'
 
 const Wrapper = styled.section`
   display: grid;
   grid-template-rows: 48px auto 48px;
   height: 90vh;
 `
-const SongsContainer = styled.ul`
+const SongsContainer = styled.main`
   overflow-y: scroll;
-  padding-inline-start: 0px;
+  /* padding-inline-start: 0px; */
 `
 const SingleSongWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 8px;
+  padding: 6px;
   background: #fefefe;
   box-shadow: 2px 4px 4px #ddd;
   border-radius: 5px;
@@ -30,14 +31,13 @@ const SingleSongWrapper = styled.section`
 
 export default class SongList extends Component {
   state = {
-    songs: this.createSongArray()
+    songs: this.createSongsArray()
   }
 
-  createSongArray() {
+  createSongsArray() {
     return this.load()
       .map(item => ({
         ...item,
-        inProgress: false,
         id: uid()
       }))
       .sort((a, b) => (a.name < b.name ? -1 : 1))
@@ -45,6 +45,7 @@ export default class SongList extends Component {
 
   render() {
     this.save()
+    console.table(this.state)
     return (
       <Wrapper data-cy="SongList">
         <Header title="Songs" />
@@ -60,8 +61,20 @@ export default class SongList extends Component {
   renderSingleSong = song => {
     return (
       <SingleSongWrapper>
-        <SongCard name={song.name} tempo={song.tempo} width={3} />
-        <Message text={song.key} />
+        <SongCard
+          name={song.name}
+          tempo={song.tempo}
+          inProgress={song.inProgress}
+        />
+        <SongDetails
+          musicKey={song.key}
+          timeSignature={song.timeSignature}
+          duration={song.duration}
+          date={song.date}
+          url={song.url}
+          inProgress={song.inProgress}
+          showSongDetails={song.showSongDetails}
+        />
       </SingleSongWrapper>
     )
   }

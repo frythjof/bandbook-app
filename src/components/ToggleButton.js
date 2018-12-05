@@ -20,6 +20,10 @@ const StyledToggleButton = styled.button`
 `
 
 export default class ToggleButton extends Component {
+  static propTypes = {
+    // onButtonClick: PropTypes.func.isRequired
+  }
+
   render() {
     return <StyledToggleButton className="visible">{'^'}</StyledToggleButton>
   }

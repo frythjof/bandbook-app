@@ -36,6 +36,7 @@ const Wrapper = styled.section`
     &.active {
       background-color: #000000bb;
       color: white;
+      box-shadow: inset 0 0 10px 1px #ddd;
     }
   }
 `

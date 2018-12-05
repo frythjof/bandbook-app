@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import uid from 'uid'
 import defaultMessages from '../data/default-messages.json'
 import Message from './Message'
 import SubmitButton from './SubmitButton'
@@ -38,8 +39,15 @@ export default class HomeBoard extends Component {
   main = React.createRef()
 
   state = {
-    messages: this.load(),
+    messages: this.createMessagesArray(),
     tempTextValue: ''
+  }
+
+  createMessagesArray() {
+    return this.load().map(item => ({
+      ...item,
+      id: uid()
+    }))
   }
 
   componentDidMount = () => {
@@ -128,7 +136,8 @@ export default class HomeBoard extends Component {
         {
           text: newText,
           firstname: 'Kai',
-          timestamp: `${postingday} ⭑ ${postingtime}`
+          timestamp: `${postingday} ⭑ ${postingtime}`,
+          id: uid()
         }
       ],
       tempTextValue: '',

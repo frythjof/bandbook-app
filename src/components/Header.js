@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 const StyledHeader = styled.h1`
   color: white;
   background-color: #000000bb;
+  box-shadow: inset 0 0 10px 1px #ddd;
   margin: 0;
   height: 2em;
   border-top: 2px solid whitesmoke;

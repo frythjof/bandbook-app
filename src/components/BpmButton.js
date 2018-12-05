@@ -21,13 +21,8 @@ export default class BpmButton extends Component {
   }
 
   static propTypes = {
-    onButtonClick: PropTypes.func.isRequired,
-    tempo: PropTypes.number
+    tempo: PropTypes.number.isRequired
   }
-
-  // static defaultProps = {
-  //   tempo: 0
-  // }
 
   componentWillUnmount() {
     clearTimeout(this.timeOut)
@@ -52,6 +47,7 @@ export default class BpmButton extends Component {
         isRed: false,
         metronomeRunning: false
       })
+      console.log('Metronome stopped')
     } else {
       this.startMetronome()
     }
