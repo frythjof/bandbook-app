@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
 // import PropTypes from 'prop-types'
 import uid from 'uid'
 import defaultSongs from '../../data/default-songs.json'
 import Header from '../Header'
 import SongCard from '../SongCard'
 import SongDetails from '../SongDetails.js'
+// import NewSongButton from '../ui/NewSongButton'
 
 const Wrapper = styled.section`
   display: grid;
@@ -26,6 +29,29 @@ const SingleSongWrapper = styled.section`
   margin: 10px;
   grid-gap: 5px;
 `
+const NewSongLinkWrapper = styled.div`
+  display: flex;
+
+  .link {
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+  }
+`
+
+// const StyledNavLink = styled(NavLink)`
+//   margin-right: 10px;
+//   text-decoration: overline;
+//   color: #4460a9;
+//   text-decoration-color: #d03d3d;
+//   &.active {
+//     color: #d03d3d;
+//   }
+// `
 
 export default class SongList extends Component {
   state = {
@@ -48,6 +74,17 @@ export default class SongList extends Component {
       <Wrapper data-cy="SongList">
         <Header title="Songs" />
         <SongsContainer>{this.renderSongs()}</SongsContainer>
+        <NewSongLinkWrapper>
+          <Link className="link" exact to="/">
+            {'Add new song'}
+          </Link>
+          <Link className="link" exact to="/">
+            {'Create setlist'}
+          </Link>
+        </NewSongLinkWrapper>
+        {/* <StyledLink exact to="/">
+          <NewSongButton text={'Add new song'} />
+        </StyledLink> */}
       </Wrapper>
     )
   }
