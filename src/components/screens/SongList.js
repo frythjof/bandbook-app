@@ -75,7 +75,7 @@ export default class SongList extends Component {
         <Header title="Songs" />
         <SongsContainer>{this.renderSongs()}</SongsContainer>
         <NewSongLinkWrapper>
-          <Link className="link" exact to="/">
+          <Link className="link" to="/songeditor">
             {'Add new song'}
           </Link>
           <Link className="link" exact to="/">
@@ -116,6 +116,10 @@ export default class SongList extends Component {
         />
       </SingleSongWrapper>
     )
+  }
+
+  addSong = newSong => {
+    this.setState({ songs: [...this.state.songs, newSong] })
   }
 
   toggleSongDetails = id => {
