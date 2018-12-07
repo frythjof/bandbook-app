@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 // import PropTypes from 'prop-types'
 import uid from 'uid'
-import defaultSongs from '../data/default-songs.json'
-import Header from './Header'
-import SongCard from './SongCard'
-import SongDetails from './SongDetails.js'
+import defaultSongs from '../../data/default-songs.json'
+import Header from '../Header'
+import SongCard from '../SongCard'
+import SongDetails from '../SongDetails.js'
 
 const Wrapper = styled.section`
   display: grid;
@@ -58,7 +58,7 @@ export default class SongList extends Component {
 
   renderSingleSong = song => {
     return (
-      <SingleSongWrapper>
+      <SingleSongWrapper data-cy="SingleSong">
         <SongCard
           key={song.id}
           name={song.name}
@@ -73,7 +73,8 @@ export default class SongList extends Component {
           duration={song.duration}
           date={song.date}
           url={song.url}
-          // inProgress={song.inProgress}
+          inProgress={song.inProgress}
+          onToggle={() => this.toggleSongProgress(song.id)}
           showSongDetails={song.showSongDetails}
         />
       </SingleSongWrapper>
@@ -86,6 +87,20 @@ export default class SongList extends Component {
     const newSongs = [
       ...songs.slice(0, index),
       { ...songs[index], showSongDetails: !songs[index].showSongDetails },
+      ...songs.slice(index + 1)
+    ]
+
+    this.setState({
+      songs: newSongs
+    })
+  }
+
+  toggleSongProgress = id => {
+    const { songs } = this.state
+    const index = songs.findIndex(s => s.id === id)
+    const newSongs = [
+      ...songs.slice(0, index),
+      { ...songs[index], inProgress: !songs[index].inProgress },
       ...songs.slice(index + 1)
     ]
 

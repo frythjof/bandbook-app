@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import uid from 'uid'
-import defaultMessages from '../data/default-messages.json'
-import Message from './Message'
-import SubmitButton from './SubmitButton'
-import TextArea from './TextArea'
-import Separator from './Separator'
-import Header from './Header'
+import defaultMessages from '../../data/default-messages.json'
+import Message from '../ui/Message'
+import SubmitButton from '../ui/SubmitButton'
+import TextArea from '../ui/TextArea'
+import Separator from '../ui/Separator'
+import Header from '../Header'
 
 const Wrapper = styled.section`
   display: grid;

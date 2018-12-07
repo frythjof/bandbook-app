@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import ToggleProgressButton from './ui/ToggleProgressButton'
 
 const StyledSongDetails = styled.section`
   max-height: 200px;
@@ -18,7 +19,7 @@ const StyledSongDetails = styled.section`
     'key timeSignature'
     'duration date'
     'url url'
-    '. .';
+    'toggle .';
   &.visible {
     display: grid;
     transition: all 0.5s ease;
@@ -30,7 +31,6 @@ const Key = styled.section`
 `
 const TimeSignature = styled.section`
   grid-area: timeSignature;
-  /* margin-right: auto; */
 `
 const Duration = styled.section`
   grid-area: duration;
@@ -49,7 +49,9 @@ export default class SongDetails extends Component {
     duration: PropTypes.string,
     date: PropTypes.string,
     url: PropTypes.string,
-    showSongDetails: PropTypes.bool.isRequired
+    showSongDetails: PropTypes.bool.isRequired,
+    inProgress: PropTypes.bool.isRequired,
+    onToggle: PropTypes.func.isRequired
   }
 
   render() {
@@ -59,7 +61,9 @@ export default class SongDetails extends Component {
       duration,
       date,
       url,
-      showSongDetails
+      showSongDetails,
+      inProgress,
+      onToggle
     } = this.props
 
     return (
@@ -72,6 +76,7 @@ export default class SongDetails extends Component {
         <Duration>{`${duration} min`}</Duration>
         <Date>{date}</Date>
         <URL>{url}</URL>
+        <ToggleProgressButton inProgress={inProgress} onToggle={onToggle} />
       </StyledSongDetails>
     )
   }

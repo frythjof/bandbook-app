@@ -5,13 +5,14 @@ import PropTypes from 'prop-types'
 const StyledToggleButton = styled.div`
   margin-left: auto;
   background-color: #fefefe;
-  color: black;
+  color: #717275;
   width: 18px;
   height: 18px;
-  border: 1px solid black;
+  border: 1px solid #717275;
   border-radius: 50%;
-  padding: 2px 5px;
+  /* padding: 2px 5px; */
   font-weight: bold;
+  line-height: 1.1;
   align-items: center;
   display: flex;
   /* grid-row-start: span 2; */

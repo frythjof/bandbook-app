@@ -4,11 +4,11 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { text, boolean, number } from '@storybook/addon-knobs'
 
-import TextArea from '../components/TextArea'
-import SubmitButton from '../components/SubmitButton'
-import Separator from '../components/Separator'
-import Message from '../components/Message'
-//import XY from '../components/XY'
+import TextArea from '../components/ui/TextArea'
+import SubmitButton from '../components/ui/SubmitButton'
+import Separator from '../components/ui/Separator'
+import Message from '../components/ui/Message'
+import BpmButton from '../components/ui/BpmButton'
 
 import StyleBox from './StyleBox'
 
@@ -25,6 +25,12 @@ storiesOf('Separator', module).add('default', () => (
     <Separator userfirstname="User1" />
     <StyleBox h={40} />
     <Separator width={number('Line width: ', 8)} userfirstname="User2" />
+  </React.Fragment>
+))
+
+storiesOf('Bpm-Button', module).add('default', () => (
+  <React.Fragment>
+    <BpmButton tempo={number('BPM: ', 80)} onClick={action('Blinking')} />
   </React.Fragment>
 ))
 

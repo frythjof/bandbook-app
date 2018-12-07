@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
-import HomeBoard from './HomeBoard'
-import SongList from './SongList'
+import HomeBoard from './screens/HomeBoard'
+import SongList from './screens/SongList'
 
 const Wrapper = styled.section`
   display: grid;

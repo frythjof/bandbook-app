@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 const StyledBpmButton = styled.button`
   border: 1px solid black;
   background-color: #fefefe;
+  font-weight: bold;
   border-radius: 5px;
   margin: 5px;
   padding: 4px;

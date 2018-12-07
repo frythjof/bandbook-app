@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import ToggleButton from './ToggleButton'
-import BpmButton from './BpmButton'
+import ToggleButton from './ui/ToggleButton'
+import BpmButton from './ui/BpmButton'
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-columns: 4fr 3fr 1fr;
+  grid-template-columns: 6fr 3fr 1fr;
   align-items: center;
   background: ${props => props.background || 'transparent'};
 `
@@ -14,6 +14,7 @@ const Wrapper = styled.section`
 const SongName = styled.section`
   white-space: nowrap;
   margin: 0 5px;
+  font-weight: bold;
   &.song-in-progress {
     color: red;
   }
@@ -36,7 +37,10 @@ export default class SongCard extends Component {
     const { inProgress, name, tempo, onToggle, showSongDetails } = this.props
     return (
       <Wrapper data-cy="SongCard">
-        <SongName className={inProgress ? 'song-in-progress' : null}>
+        <SongName
+          data-cy="SongName"
+          className={inProgress ? 'song-in-progress' : null}
+        >
           {name}
         </SongName>
         <BpmButton tempo={tempo} />
