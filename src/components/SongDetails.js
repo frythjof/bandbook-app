@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import ToggleProgressButton from './ui/ToggleProgressButton'
+import DeleteButton from './ui/DeleteButton'
 
 const StyledSongDetails = styled.section`
   max-height: 200px;
@@ -19,7 +20,7 @@ const StyledSongDetails = styled.section`
     'key timeSignature'
     'duration date'
     'url url'
-    'toggle .';
+    'toggle delete';
   &.visible {
     display: grid;
     transition: all 0.5s ease;
@@ -63,7 +64,8 @@ export default class SongDetails extends Component {
       url,
       showSongDetails,
       inProgress,
-      onToggle
+      onToggle,
+      onDelete
     } = this.props
 
     return (
@@ -77,6 +79,7 @@ export default class SongDetails extends Component {
         <Date>{date}</Date>
         <URL>{url}</URL>
         <ToggleProgressButton inProgress={inProgress} onToggle={onToggle} />
+        <DeleteButton inProgress={inProgress} onDelete={onDelete} />
       </StyledSongDetails>
     )
   }

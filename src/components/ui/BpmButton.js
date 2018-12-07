@@ -31,13 +31,15 @@ export default class BpmButton extends Component {
 
   render() {
     return (
-      <StyledBpmButton
-        data-cy="BpmButton"
-        className={this.state.isRed ? 'bpm-blinking' : null}
-        onClick={this.checkMetronome}
-      >
-        {`${this.props.tempo}bpm`}
-      </StyledBpmButton>
+      <React.Fragment>
+        <StyledBpmButton
+          data-cy="BpmButton"
+          className={this.state.isRed ? 'bpm-blinking' : null}
+          onClick={this.checkMetronome}
+        >
+          {`${this.props.tempo}bpm`}
+        </StyledBpmButton>
+      </React.Fragment>
     )
   }
 
@@ -65,8 +67,10 @@ export default class BpmButton extends Component {
       metronomeRunning: true
     })
     this.startMetronome()
-    //<audio HTML-Tag>
+
     console.log('Tick')
     console.log(this.props.tempo)
   }
 }
+
+// <audio src="../../data/audio/Pop.m4a" autoplay />
