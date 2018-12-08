@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 // import PropTypes from 'prop-types'
-import uid from 'uid'
+// import uid from 'uid'
 import Header from '../Header'
 
 const Wrapper = styled.section`
@@ -149,7 +149,7 @@ export default class SongListEditor extends Component {
           </SingleSongWrapper>
         </SongsContainer>
         <NewSongLinkWrapper onClick={this.handleSubmit}>
-          <Link className="link" to="/songeditor">
+          <Link className="link" to="/repertoire">
             {'Save song'}
           </Link>
         </NewSongLinkWrapper>

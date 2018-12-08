@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const StyledDeleteButton = styled.button`
-  grid-area: delete;
+const StyledEditButton = styled.button`
+  grid-area: edit;
   border: 1px solid #717275;
   background-color: #fefefe;
   font-weight: bold;
@@ -16,23 +16,23 @@ const StyledDeleteButton = styled.button`
   }
 `
 
-export default class DeleteButton extends Component {
+export default class EditButton extends Component {
   static propTypes = {
     onToggle: PropTypes.func.isRequired,
     inProgress: PropTypes.bool.isRequired
   }
 
   render() {
-    const { inProgress, onDelete } = this.props
+    const { inProgress, onEdit } = this.props
 
     return (
-      <StyledDeleteButton
-        data-cy="DeleteButton"
+      <StyledEditButton
+        data-cy="EditButton"
         className={inProgress ? 'song-in-progress' : null}
-        onClick={inProgress ? event => onDelete(event.target) : null}
+        onClick={inProgress ? event => onEdit(event.target) : null}
       >
-        {'Delete song'}
-      </StyledDeleteButton>
+        {'Edit song'}
+      </StyledEditButton>
     )
   }
 }

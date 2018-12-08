@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Sound from 'react-sound'
 import PropTypes from 'prop-types'
 
 const StyledBpmButton = styled.button`
@@ -39,6 +40,12 @@ export default class BpmButton extends Component {
         >
           {`${this.props.tempo}bpm`}
         </StyledBpmButton>
+        {/* <Sound
+          url="../data/audio/Pop.m4a"
+          playStatus={
+            this.state.isRed ? Sound.status.PLAYING : Sound.status.STOPPED
+          }
+        /> */}
       </React.Fragment>
     )
   }
