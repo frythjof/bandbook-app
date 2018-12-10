@@ -30,9 +30,15 @@ const SingleSongWrapper = styled.section`
 const NewSongLinkWrapper = styled.div`
   display: flex;
 
-  .link {
-    justify-content: flex-end;
+  a:any-link {
+    display: flex;
+    justify-content: center;
     align-items: center;
+
+    text-decoration: none;
+    color: whitesmoke;
+    width: 100%;
+    background: transparent;
     margin: 10px;
     font-size: 12px;
     font-weight: bold;
@@ -59,12 +65,8 @@ export default class SongList extends Component {
         <Header title="Songs" />
         <SongsContainer>{this.renderSongs()}</SongsContainer>
         <NewSongLinkWrapper>
-          <Link className="link" to="/songeditor">
-            {'Add new song'}
-          </Link>
-          <Link className="link" exact to="/">
-            {'Create setlist'}
-          </Link>
+          <Link to="/songeditor">{'Add new song'}</Link>
+          <Link to="/repertoire">{'Create setlist'}</Link>
         </NewSongLinkWrapper>
         {/* <StyledLink exact to="/">
           <NewSongButton text={'Add new song'} />
@@ -97,6 +99,7 @@ export default class SongList extends Component {
           inProgress={song.inProgress}
           onToggle={() => this.props.onToggleSongProgress(song.id)}
           onDelete={() => this.props.onDeleteSong(song.id)}
+          onEdit={() => this.props.onEditSong(song.id)}
           showSongDetails={song.showSongDetails}
         />
       </SingleSongWrapper>

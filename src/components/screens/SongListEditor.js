@@ -28,9 +28,15 @@ const SingleSongWrapper = styled.section`
 const NewSongLinkWrapper = styled.div`
   display: flex;
 
-  .link {
-    justify-content: flex-end;
+  a:any-link {
+    display: flex;
+    justify-content: center;
     align-items: center;
+
+    text-decoration: none;
+    color: whitesmoke;
+    width: 100%;
+    background: transparent;
     margin: 10px;
     font-size: 14px;
     font-weight: bold;
@@ -43,14 +49,14 @@ export default class SongListEditor extends Component {
   state = {
     song: {
       name: '',
-      tempo: '',
+      tempo: null,
       key: '',
       timeSignature: '',
       duration: '',
       date: '',
       url: '',
       inProgress: false,
-      showSongDetails: false
+      showSongDetails: true
     }
   }
 
@@ -72,11 +78,19 @@ export default class SongListEditor extends Component {
     })
   }
 
+  updateTempoInput = event => {
+    const tempoNumber = Number(event.target.value)
+
+    this.setState({
+      song: { ...this.state.song, [event.target.name]: tempoNumber }
+    })
+  }
+
   handleSubmit = () => {
     this.props.newSong(this.state.song)
 
     this.name.current.value = ''
-    this.tempo.current.value = ''
+    this.tempo.current.value = null
     this.key.current.value = ''
     this.timeSignature.current.value = ''
     this.duration.current.value = ''
@@ -103,8 +117,9 @@ export default class SongListEditor extends Component {
             <input
               ref={this.tempo}
               name="tempo"
+              type="number"
               placeholder="Tempo"
-              onChange={this.updateInput}
+              onChange={this.updateTempoInput}
             />
           </SingleSongWrapper>
           <SingleSongWrapper>
@@ -149,9 +164,7 @@ export default class SongListEditor extends Component {
           </SingleSongWrapper>
         </SongsContainer>
         <NewSongLinkWrapper onClick={this.handleSubmit}>
-          <Link className="link" to="/repertoire">
-            {'Save song'}
-          </Link>
+          <Link to="/repertoire">{'Save song'}</Link>
         </NewSongLinkWrapper>
       </Wrapper>
     )

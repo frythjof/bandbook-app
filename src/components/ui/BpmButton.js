@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Sound from 'react-sound'
+// import Sound from 'react-sound'
 import PropTypes from 'prop-types'
+import click from '../../data/audio/Pop.m4a'
 
 const StyledBpmButton = styled.button`
   border: 1px solid black;
@@ -40,12 +41,7 @@ export default class BpmButton extends Component {
         >
           {`${this.props.tempo}bpm`}
         </StyledBpmButton>
-        {/* <Sound
-          url="../data/audio/Pop.m4a"
-          playStatus={
-            this.state.isRed ? Sound.status.PLAYING : Sound.status.STOPPED
-          }
-        /> */}
+        {this.state.isRed ? <audio src={click} autoPlay /> : null}
       </React.Fragment>
     )
   }
@@ -80,4 +76,10 @@ export default class BpmButton extends Component {
   }
 }
 
-// <audio src="../../data/audio/Pop.m4a" autoplay />
+// <audio src="../../data/audio/Pop.m4a" autoPlay />
+/* <Sound
+          url="../data/audio/Pop.m4a"
+          playStatus={
+            this.state.isRed ? Sound.status.PLAYING : Sound.status.STOPPED
+          }
+        /> */

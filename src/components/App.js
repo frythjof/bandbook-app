@@ -18,27 +18,27 @@ const Wrapper = styled.section`
 
   nav {
     display: flex;
-  }
 
-  a:any-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: whitesmoke;
-    width: 100%;
-    background: transparent;
-    /* background: #efefef; */
-    border-top: 2px solid white;
+    a:any-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: whitesmoke;
+      width: 100%;
+      background: transparent;
+      /* background: #efefef; */
+      border-top: 2px solid white;
 
-    &:first-child {
-      border-right: 2px solid whitesmoke;
-    }
+      &:first-child {
+        border-right: 2px solid whitesmoke;
+      }
 
-    &.active {
-      background-color: #000000bb;
-      color: white;
-      box-shadow: inset 0 0 10px 1px #ddd;
+      &.active {
+        background-color: #000000bb;
+        color: white;
+        box-shadow: inset 0 0 10px 1px #ddd;
+      }
     }
   }
 `
@@ -57,9 +57,9 @@ export default class App extends Component {
       .sort((a, b) => (a.name < b.name ? -1 : 1))
   }
 
-  componentDidUpdate = () => {
-    this.createSongsArray()
-  }
+  // componentDidUpdate = () => {
+  //   this.createSongsArray()
+  // }
 
   render() {
     this.save()
@@ -80,6 +80,7 @@ export default class App extends Component {
                 onToggleSongDetails={this.toggleSongDetails}
                 onToggleSongProgress={this.toggleSongProgress}
                 onDeleteSong={this.deleteSong}
+                onEditSong={this.editSong}
                 allSongs={this.state.songs}
               />
             )}
@@ -104,7 +105,11 @@ export default class App extends Component {
   }
 
   addSong = newSong => {
-    this.setState({ songs: [...this.state.songs, newSong] })
+    this.setState({
+      songs: [...this.state.songs, newSong].sort((a, b) =>
+        a.name < b.name ? -1 : 1
+      )
+    })
   }
 
   toggleSongDetails = id => {
@@ -134,6 +139,8 @@ export default class App extends Component {
       songs: newSongs
     })
   }
+
+  // editSong
 
   deleteSong = id => {
     const { songs } = this.state

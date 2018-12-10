@@ -18,7 +18,7 @@ const StyledEditButton = styled.button`
 
 export default class EditButton extends Component {
   static propTypes = {
-    onToggle: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
     inProgress: PropTypes.bool.isRequired
   }
 

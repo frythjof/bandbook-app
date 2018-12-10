@@ -43,6 +43,10 @@ const Date = styled.section`
 `
 const URL = styled.a`
   grid-area: url;
+  justify-content: flex-start;
+  color: black;
+  text-decoration: none;
+  border-top: 0;
 `
 
 export default class SongDetails extends Component {
@@ -80,7 +84,14 @@ export default class SongDetails extends Component {
         <TimeSignature>{timeSignature}</TimeSignature>
         <Duration>{`${duration} min`}</Duration>
         <Date>{date}</Date>
-        <URL>{url}</URL>
+        <URL
+          href={url}
+          // href="https://www.dropbox.com/"
+          // href="https://www.dropbox.com/s/6a7jy55gs83pztv/advertising%20madness.mp3?dl=0"
+          // href="https://open.spotify.com/track/4S1vA0mTayFbnHrwdkzPWT"
+        >
+          {url}
+        </URL>
         <ToggleProgressButton inProgress={inProgress} onToggle={onToggle} />
         <DeleteButton inProgress={inProgress} onDelete={onDelete} />
         <EditButton inProgress={inProgress} onEdit={onEdit} />

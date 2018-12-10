@@ -18,7 +18,7 @@ const StyledDeleteButton = styled.button`
 
 export default class DeleteButton extends Component {
   static propTypes = {
-    onToggle: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     inProgress: PropTypes.bool.isRequired
   }
 
