@@ -57,16 +57,18 @@ const NewSongLinkWrapper = styled.div`
 //   }
 // `
 
-export default class SongList extends Component {
+export default class SetList extends Component {
   render() {
-    console.table(this.state)
+    const gigday = new Date().toLocaleDateString('de-DE')
     return (
-      <Wrapper data-cy="SongList">
-        <Header title="Songs" />
+      <Wrapper data-cy="Setlist">
+        <Header title={`Setlist for ${gigday}`} />
         <SongsContainer>{this.renderSongs()}</SongsContainer>
         <NewSongLinkWrapper>
-          <Link to="/songeditor">{'Add new song'}</Link>
-          {/* <Link to="/repertoire">{'Delete setlist'}</Link> */}
+          {/* <Link to="/songeditor">{'Add new song'}</Link> */}
+          <Link onClick={this.props.onDeleteSetlist} to="/repertoire">
+            {'Delete setlist'}
+          </Link>
         </NewSongLinkWrapper>
         {/* <StyledLink exact to="/">
           <NewSongButton text={'Add new song'} />
@@ -96,15 +98,15 @@ export default class SongList extends Component {
           duration={song.duration}
           date={song.date}
           url={song.url}
-          showSongDetails={song.showSongDetails}
           inProgress={song.inProgress}
           selectedForSetlist={song.selectedForSetlist}
+          onToggle={() => this.props.onToggleSongProgress(song.id)}
           onToggleForSetlist={() =>
             this.props.onToggleSelectedForSetlist(song.id)
           }
-          onToggle={() => this.props.onToggleSongProgress(song.id)}
           onDelete={() => this.props.onDeleteSong(song.id)}
           onEdit={() => this.props.onEditSong(song.id)}
+          showSongDetails={song.showSongDetails}
         />
       </SingleSongWrapper>
     )

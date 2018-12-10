@@ -8,7 +8,8 @@
     "date": "22.11.2018",
     "url": "https://www.dropbox.com/s/songB",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": false
   },
   {
     "name": "Song H",
@@ -19,7 +20,8 @@
     "date": "23.11.2018",
     "url": "https://www.dropbox.com/s/songH",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": false
   },
   {
     "name": "Song C",
@@ -30,7 +32,8 @@
     "date": "24.11.2018",
     "url": "https://www.dropbox.com/s/songC",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": false
   },
   {
     "name": "Song A",
@@ -41,7 +44,8 @@
     "date": "25.11.2018",
     "url": "https://www.dropbox.com/s/songA",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": true
   },
   {
     "name": "Song Z",
@@ -52,7 +56,8 @@
     "date": "26.11.2018",
     "url": "https://www.dropbox.com/s/songZ",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": false
   },
   {
     "name": "Song U",
@@ -63,7 +68,8 @@
     "date": "27.11.2018",
     "url": "https://www.dropbox.com/s/songU",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": true
   },
   {
     "name": "Song X",
@@ -74,7 +80,8 @@
     "date": "28.11.2018",
     "url": "https://www.dropbox.com/s/songX",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": true
   },
   {
     "name": "Song P",
@@ -85,7 +92,8 @@
     "date": "29.11.2018",
     "url": "https://www.dropbox.com/s/songP",
     "inProgress": true,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": false
   },
   {
     "name": "Song S",
@@ -96,7 +104,8 @@
     "date": "30.11.2018",
     "url": "https://www.dropbox.com/s/songS",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": false
   },
   {
     "name": "Song Y",
@@ -107,6 +116,7 @@
     "date": "01.12.2018",
     "url": "https://www.dropbox.com/s/songY",
     "inProgress": false,
-    "showSongDetails": false
+    "showSongDetails": false,
+    "selectedForSetlist": false
   }
 ]

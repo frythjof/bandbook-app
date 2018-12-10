@@ -6,6 +6,7 @@ import defaultSongs from '../data/default-songs.json'
 import HomeBoard from './screens/HomeBoard'
 import SongList from './screens/SongList'
 import SongListEditor from './screens/SongListEditor'
+import Setlist from './screens/Setlist'
 
 const Wrapper = styled.section`
   display: grid;
@@ -28,9 +29,13 @@ const Wrapper = styled.section`
       width: 100%;
       background: transparent;
       /* background: #efefef; */
-      border-top: 2px solid white;
+      border-top: 2px solid whitesmoke;
 
       &:first-child {
+        border-right: 2px solid whitesmoke;
+      }
+
+      &:nth-child(2) {
         border-right: 2px solid whitesmoke;
       }
 
@@ -79,9 +84,26 @@ export default class App extends Component {
               <SongList
                 onToggleSongDetails={this.toggleSongDetails}
                 onToggleSongProgress={this.toggleSongProgress}
+                onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
                 onDeleteSong={this.deleteSong}
                 onEditSong={this.editSong}
                 allSongs={this.state.songs}
+              />
+            )}
+          />
+          <Route
+            path="/setlist"
+            render={() => (
+              <Setlist
+                onToggleSongDetails={this.toggleSongDetails}
+                onToggleSongProgress={this.toggleSongProgress}
+                onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
+                onDeleteSong={this.deleteSong}
+                onDeleteSetlist={this.deleteSetlist}
+                onEditSong={this.editSong}
+                allSongs={this.state.songs.filter(
+                  song => song.selectedForSetlist === true
+                )}
               />
             )}
           />
@@ -98,6 +120,9 @@ export default class App extends Component {
             <NavLink activeClassName="active" to="/repertoire">
               <strong>Songs</strong>
             </NavLink>
+            <NavLink activeClassName="active" to="/setlist">
+              <strong>Setlist</strong>
+            </NavLink>
           </nav>
         </Wrapper>
       </Router>
@@ -109,6 +134,15 @@ export default class App extends Component {
       songs: [...this.state.songs, newSong].sort((a, b) =>
         a.name < b.name ? -1 : 1
       )
+    })
+  }
+
+  deleteSetlist = () => {
+    this.setState({
+      songs: this.state.songs.map(item => ({
+        ...item,
+        selectedForSetlist: false
+      }))
     })
   }
 
@@ -137,6 +171,20 @@ export default class App extends Component {
 
     this.setState({
       songs: newSongs
+    })
+  }
+
+  toggleSelectedForSetlist = id => {
+    const { songs } = this.state
+    const index = songs.findIndex(s => s.id === id)
+    const newSetlist = [
+      ...songs.slice(0, index),
+      { ...songs[index], selectedForSetlist: !songs[index].selectedForSetlist },
+      ...songs.slice(index + 1)
+    ]
+
+    this.setState({
+      songs: newSetlist
     })
   }
 

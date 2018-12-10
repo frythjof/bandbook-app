@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const StyledSubmitButton = styled.button`
-  border: 1px solid black;
-  background: #fefefe;
+  color: whitesmoke;
+  font-weight: bold;
+  background: #000000bb;
+  border: 2px solid white;
   border-radius: 5px;
   margin: 5px;
   padding: 4px;

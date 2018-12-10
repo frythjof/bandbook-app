@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ToggleProgressButton from './ui/ToggleProgressButton'
 import DeleteButton from './ui/DeleteButton'
 import EditButton from './ui/EditButton'
+import ToggleSelectForSetlistButton from './ui/ToggleSelectForSetlistButton'
 
 const StyledSongDetails = styled.section`
   max-height: 200px;
@@ -22,7 +23,7 @@ const StyledSongDetails = styled.section`
     'duration date'
     'url url'
     'toggle delete'
-    'edit .';
+    'edit select';
   &.visible {
     display: grid;
     transition: all 0.5s ease;
@@ -70,7 +71,9 @@ export default class SongDetails extends Component {
       url,
       showSongDetails,
       inProgress,
+      selectedForSetlist,
       onToggle,
+      onToggleForSetlist,
       onDelete,
       onEdit
     } = this.props
@@ -95,6 +98,11 @@ export default class SongDetails extends Component {
         <ToggleProgressButton inProgress={inProgress} onToggle={onToggle} />
         <DeleteButton inProgress={inProgress} onDelete={onDelete} />
         <EditButton inProgress={inProgress} onEdit={onEdit} />
+        <ToggleSelectForSetlistButton
+          inProgress={inProgress}
+          onToggleForSetlist={onToggleForSetlist}
+          selectedForSetlist={selectedForSetlist}
+        />
       </StyledSongDetails>
     )
   }
