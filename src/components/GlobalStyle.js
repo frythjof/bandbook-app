@@ -24,7 +24,6 @@ body {
   Pinklightedstage.jpeg
   orangebluedrums.jpeg
   /bassistonstage.jpeg
-  /bassistonstagecolor.jpg
   /chineseflute.jpeg 
   /colorfulstage.jpeg
   /doublebass.jpeg
@@ -32,7 +31,6 @@ body {
   /graffitiwall.jpeg
   /partialmic.jpeg
   /pinkblueconcert.jpeg
-  /saxophonewall.jpg
   /violin.jpeg
   */
 
