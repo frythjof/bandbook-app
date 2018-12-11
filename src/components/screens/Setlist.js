@@ -57,7 +57,7 @@ const NewSongLinkWrapper = styled.div`
 //   }
 // `
 
-export default class SetList extends Component {
+export default class Setlist extends Component {
   render() {
     const gigday = new Date().toLocaleDateString('de-DE')
     return (

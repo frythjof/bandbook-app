@@ -7,6 +7,7 @@ import HomeBoard from './screens/HomeBoard'
 import SongList from './screens/SongList'
 import SongListEditor from './screens/SongListEditor'
 import Setlist from './screens/Setlist'
+import SetlistSortable from './screens/SetlistSortable.js'
 
 const Wrapper = styled.section`
   display: grid;
@@ -108,6 +109,22 @@ export default class App extends Component {
             )}
           />
           <Route
+            path="/setlistsortable"
+            render={() => (
+              <SetlistSortable
+                // onToggleSongDetails={this.toggleSongDetails}
+                // onToggleSongProgress={this.toggleSongProgress}
+                // onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
+                // onDeleteSong={this.deleteSong}
+                // onDeleteSetlist={this.deleteSetlist}
+                // onEditSong={this.editSong}
+                allSongs={this.state.songs.filter(
+                  song => song.selectedForSetlist === true
+                )}
+              />
+            )}
+          />
+          <Route
             path="/songeditor"
             render={() => (
               <SongListEditor newSong={song => this.addSong(song)} />
@@ -122,6 +139,9 @@ export default class App extends Component {
             </NavLink>
             <NavLink activeClassName="active" to="/setlist">
               <strong>Setlist</strong>
+            </NavLink>
+            <NavLink activeClassName="active" to="/setlistsortable">
+              <strong>Setlist DND</strong>
             </NavLink>
           </nav>
         </Wrapper>
