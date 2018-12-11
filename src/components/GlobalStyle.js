@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import backgroundimg from '../data/img/orangebluedrums.jpeg'
 
 export default createGlobalStyle`
 
@@ -16,7 +17,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* background: #efefef; */
+  background-image: url(${backgroundimg});
+  /* background-image: url("https://source.unsplash.com/400x700/?music,musician"); */
+  /* 
   background-image: url("https://source.unsplash.com/400x700/?music,musician");
+  Pinklightedstage.jpeg
+  orangebluedrums.jpeg
+  /bassistonstage.jpeg
+  /bassistonstagecolor.jpg
+  /chineseflute.jpeg 
+  /colorfulstage.jpeg
+  /doublebass.jpeg
+  /fenderstrat.jpeg
+  /graffitiwall.jpeg
+  /partialmic.jpeg
+  /pinkblueconcert.jpeg
+  /saxophonewall.jpg
+  /violin.jpeg
+  */
+
   background-size: cover;
 
 }

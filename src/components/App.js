@@ -7,15 +7,20 @@ import HomeBoard from './screens/HomeBoard'
 import SongList from './screens/SongList'
 import SongListEditor from './screens/SongListEditor'
 import Setlist from './screens/Setlist'
-import SetlistSortable from './screens/SetlistSortable.js'
+import SetlistStatic from './screens/SetlistStatic'
+import { arrayMove } from 'react-sortable-hoc'
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: 20px auto 40px;
+  grid-template-rows: 25px auto 40px;
   height: 100vh;
 
   span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     color: whitesmoke;
+    margin: 0 10px;
   }
 
   nav {
@@ -77,7 +82,6 @@ export default class App extends Component {
               <strong>Bandbook</strong>
             </em>
           </span>
-
           <Route exact path="/" render={() => <HomeBoard />} />
           <Route
             path="/repertoire"
@@ -102,23 +106,7 @@ export default class App extends Component {
                 onDeleteSong={this.deleteSong}
                 onDeleteSetlist={this.deleteSetlist}
                 onEditSong={this.editSong}
-                allSongs={this.state.songs.filter(
-                  song => song.selectedForSetlist === true
-                )}
-              />
-            )}
-          />
-          <Route
-            path="/setlistsortable"
-            render={() => (
-              <SetlistSortable
-                // onToggleSongDetails={this.toggleSongDetails}
-                // onToggleSongProgress={this.toggleSongProgress}
-                // onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
-                // onDeleteSong={this.deleteSong}
-                // onDeleteSetlist={this.deleteSetlist}
-                // onEditSong={this.editSong}
-                allSongs={this.state.songs.filter(
+                selectedSongs={this.state.songs.filter(
                   song => song.selectedForSetlist === true
                 )}
               />
@@ -130,6 +118,22 @@ export default class App extends Component {
               <SongListEditor newSong={song => this.addSong(song)} />
             )}
           />
+          {/* <Route
+            path="/setliststatic"
+            render={() => (
+              <SetlistStatic
+                onToggleSongDetails={this.toggleSongDetails}
+                onToggleSongProgress={this.toggleSongProgress}
+                onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
+                onDeleteSong={this.deleteSong}
+                onDeleteSetlist={this.deleteSetlist}
+                onEditSong={this.editSong}
+                allSongs={this.state.songs.filter(
+                  song => song.selectedForSetlist === true
+                )}
+              />
+            )}
+          /> */}
           <nav>
             <NavLink exact activeClassName="active" to="/">
               <strong>Messages</strong>
@@ -140,9 +144,9 @@ export default class App extends Component {
             <NavLink activeClassName="active" to="/setlist">
               <strong>Setlist</strong>
             </NavLink>
-            <NavLink activeClassName="active" to="/setlistsortable">
-              <strong>Setlist DND</strong>
-            </NavLink>
+            {/* <NavLink activeClassName="active" to="/setliststatic">
+              <strong>Setlist Old</strong>
+            </NavLink> */}
           </nav>
         </Wrapper>
       </Router>
