@@ -47,16 +47,6 @@ const NewSongLinkWrapper = styled.div`
   }
 `
 
-// const StyledNavLink = styled(NavLink)`
-//   margin-right: 10px;
-//   text-decoration: overline;
-//   color: #4460a9;
-//   text-decoration-color: #d03d3d;
-//   &.active {
-//     color: #d03d3d;
-//   }
-// `
-
 export default class SongList extends Component {
   render() {
     console.table(this.state)
@@ -68,9 +58,6 @@ export default class SongList extends Component {
           <Link to="/songeditor">{'Add new song'}</Link>
           {/* <Link to="/repertoire">{'Delete setlist'}</Link> */}
         </NewSongLinkWrapper>
-        {/* <StyledLink exact to="/">
-          <NewSongButton text={'Add new song'} />
-        </StyledLink> */}
       </Wrapper>
     )
   }

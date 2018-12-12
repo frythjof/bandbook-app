@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import DeleteFromSetlistButton from './ui/DeleteFromSetlistButton'
+// import DeleteFromSetlistButton from './ui/DeleteFromSetlistButton'
 import BpmButton from './ui/BpmButton'
 
 const Wrapper = styled.section`
@@ -25,8 +25,8 @@ export default class SongCardSetlist extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     tempo: PropTypes.number.isRequired,
-    inProgress: PropTypes.bool.isRequired,
-    onToggleForSetlist: PropTypes.func.isRequired
+    inProgress: PropTypes.bool.isRequired
+    //onToggleForSetlist: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -34,7 +34,7 @@ export default class SongCardSetlist extends Component {
   }
 
   render() {
-    const { inProgress, name, tempo, onToggleForSetlist } = this.props
+    const { inProgress, name, tempo } = this.props
     return (
       <Wrapper data-cy="SongCard">
         <SongName

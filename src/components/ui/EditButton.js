@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+//import { Link } from 'react-router-dom'
 
 const StyledEditButton = styled.button`
   grid-area: edit;
@@ -18,7 +19,7 @@ const StyledEditButton = styled.button`
 
 export default class EditButton extends Component {
   static propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     inProgress: PropTypes.bool.isRequired
   }
 

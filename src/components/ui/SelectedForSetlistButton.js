@@ -27,8 +27,7 @@ const StyledSelectedForSetlistButton = styled.div`
 export default class SelectedForSetlistButton extends Component {
   static propTypes = {
     onToggle: PropTypes.func.isRequired,
-    selectedForSetlist: PropTypes.bool.isRequired,
-    showSongDetails: PropTypes.bool.isRequired
+    selectedForSetlist: PropTypes.bool.isRequired
   }
 
   render() {
@@ -39,7 +38,7 @@ export default class SelectedForSetlistButton extends Component {
         className={selectedForSetlist ? 'song-selected-for-setlist' : null}
         onClick={event => onToggle(event.target)}
       >
-        {this.props.showSongDetails ? '-' : '+'}
+        {'+'}
       </StyledSelectedForSetlistButton>
     )
   }

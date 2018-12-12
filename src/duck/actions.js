@@ -6,5 +6,6 @@ export const toggleSongDetails = createAction('toggleSongDetails')
 export const toggleSongProgress = createAction('toggleSongProgress')
 export const toggleSelectedForSetlist = createAction('toggleSelectedForSetlist')
 export const deleteSong = createAction('deleteSong')
+export const editSong = createAction('editSong')
 
 // usw. für alle anderen functions aus App.js

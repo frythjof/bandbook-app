@@ -95,7 +95,7 @@ export default class HomeBoard extends Component {
 
   renderSingleMessage = message => {
     return (
-      <SingleMessageWrapper>
+      <SingleMessageWrapper key={message.id}>
         <Separator
           firstname={message.firstname}
           width={3}

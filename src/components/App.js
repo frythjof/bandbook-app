@@ -3,16 +3,20 @@ import styled from 'styled-components'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import { configureStore } from 'redux-starter-kit'
 import reducer from '../duck/reducer'
-import * as Actions from '../duck/actions'
+/* import * as Actions from '../duck/actions' */
+import { Provider } from 'react-redux'
 
-import uid from 'uid'
-import defaultSongs from '../data/default-songs.json'
+// import uid from 'uid'
+// import defaultSongs from '../data/default-songs.json'
 import HomeBoard from './screens/HomeBoard'
-import SongList from './screens/SongList'
-import SongListEditor from './screens/SongListEditor'
-import Setlist from './screens/Setlist'
-import SetlistStatic from './screens/SetlistStatic'
-import { arrayMove } from 'react-sortable-hoc'
+// import SongList from './screens/SongList'
+import SongListContainer from './screens/SongListContainer'
+// import SongListEditor from './screens/SongListEditor'
+import SongListEditorContainer from './screens/SongListEditorContainer'
+// import Setlist from './screens/Setlist'
+import SetlistContainer from './screens/SetlistContainer'
+// import SetlistStatic from './screens/SetlistStatic'
+// import { arrayMove } from 'react-sortable-hoc'
 
 const Wrapper = styled.section`
   display: grid;
@@ -78,57 +82,61 @@ export default class App extends Component {
   //   this.createSongsArray()
   // }
 
-  componentDidMount() {
-    store.subscribe(() => this.forceUpdate())
-  }
+  // componentDidMount() {
+  //   store.subscribe(() => this.forceUpdate())
+  // }
 
   render() {
     const state = store.getState()
     this.save(state)
     return (
-      <Router>
-        <Wrapper>
-          <span>
-            <em>
-              <strong>Bandbook</strong>
-            </em>
-          </span>
-          <Route exact path="/" render={() => <HomeBoard />} />
-          <Route
-            path="/repertoire"
-            render={() => (
-              <SongList
-                onToggleSongDetails={this.toggleSongDetails}
-                onToggleSongProgress={this.toggleSongProgress}
-                onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
-                onDeleteSong={this.deleteSong}
-                onEditSong={this.editSong}
-                allSongs={state.songs}
-              />
-            )}
-          />
-          <Route
-            path="/setlist"
-            render={() => (
-              <Setlist
-                onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
-                onDeleteSetlist={this.deleteSetlist}
-                selectedSongs={state.songs.filter(
-                  song => song.selectedForSetlist === true
-                )}
-              />
-            )}
-          />
-          <Route
-            path="/songeditor"
-            render={() => (
-              <SongListEditor
-                newSong={song => this.addSong(song)}
-                // editSong={state.songs[0]}
-              />
-            )}
-          />
-          {/* <Route
+      <Provider store={store}>
+        <Router>
+          <Wrapper>
+            <span>
+              <em>
+                <strong>Bandbook</strong>
+              </em>
+            </span>
+            <Route exact path="/" render={() => <HomeBoard />} />
+            <Route
+              path="/repertoire"
+              component={SongListContainer}
+              // render={() => (
+              // <SongList
+              //   onToggleSongDetails={this.toggleSongDetails}
+              //   onToggleSongProgress={this.toggleSongProgress}
+              //   onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
+              //   onDeleteSong={this.deleteSong}
+              //   onEditSong={this.editSong}
+              //   allSongs={state.songs}
+              // />
+              // )}
+            />
+            <Route
+              path="/setlist"
+              component={SetlistContainer}
+              // render={() => (
+              //   <Setlist
+              //     onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
+              //     onDeleteSetlist={this.deleteSetlist}
+              //     selectedSongs={state.songs.filter(
+              //       song => song.selectedForSetlist === true
+              //     )}
+              //   />
+              // )}
+            />
+            <Route
+              path="/songeditor"
+              component={SongListEditorContainer}
+              // render={() => (
+              //   <SongListEditor
+              //     newSong={song => this.addSong(song)}
+              //     // editSong={state.songs[0]}
+              //   />
+              // )}
+            />
+            {/* <Route
             path="/setliststatic"
             render={() => (
               <SetlistStatic
@@ -144,27 +152,30 @@ export default class App extends Component {
               />
             )}
           /> */}
-          <nav>
-            <NavLink exact activeClassName="active" to="/">
-              <strong>Messages</strong>
-            </NavLink>
-            <NavLink activeClassName="active" to="/repertoire">
-              <strong>Songs</strong>
-            </NavLink>
-            <NavLink activeClassName="active" to="/setlist">
-              <strong>Setlist</strong>
-            </NavLink>
-            {/* <NavLink activeClassName="active" to="/setliststatic">
+            <nav>
+              <NavLink exact activeClassName="active" to="/">
+                <strong>Messages</strong>
+              </NavLink>
+              <NavLink activeClassName="active" to="/repertoire">
+                <strong>Songs</strong>
+              </NavLink>
+              <NavLink activeClassName="active" to="/setlist">
+                <strong>Setlist</strong>
+              </NavLink>
+              {/* <NavLink activeClassName="active" to="/setliststatic">
               <strong>Setlist Old</strong>
             </NavLink> */}
-          </nav>
-        </Wrapper>
-      </Router>
+            </nav>
+          </Wrapper>
+        </Router>
+      </Provider>
     )
   }
 
+  /*
+
   addSong = newSong => {
-    store.dispatch(Actions.addSong(newSong))
+    store.dispatch(Actions.addSong(newSong)) 
     // this.setState({
     //   songs: [...this.state.songs, newSong].sort((a, b) =>
     //     a.name < b.name ? -1 : 1
@@ -240,10 +251,6 @@ export default class App extends Component {
     // })
   }
 
-  save(state) {
-    localStorage.setItem('bandbook-app--songs', JSON.stringify(state.songs))
-  }
-
   // load() {
   //   try {
   //     return (
@@ -253,4 +260,10 @@ export default class App extends Component {
   //     return defaultSongs
   //   }
   // }
+
+*/
+
+  save(state) {
+    localStorage.setItem('bandbook-app--songs', JSON.stringify(state.songs))
+  }
 }
