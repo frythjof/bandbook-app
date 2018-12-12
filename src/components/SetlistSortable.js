@@ -8,8 +8,7 @@ import {
   arrayMove
 } from 'react-sortable-hoc'
 
-import SongCard from './SongCard'
-import SongDetails from './SongDetails.js'
+import SongCardSetlist from './SongCardSetlist'
 
 const SingleSongWrapper = styled.section`
   display: flex;
@@ -25,27 +24,11 @@ const SingleSongWrapper = styled.section`
 
 const SortableItem = SortableElement(({ song, position }) => (
   <SingleSongWrapper data-cy="SingleSong" key={song.id}>
-    <SongCard
+    <SongCardSetlist
       name={`${position + 1}.) ${song.name}`}
       tempo={song.tempo}
       inProgress={song.inProgress}
-      onToggle={() => this.props.onToggleSongDetails(song.id)}
-      selectedForSetlist={song.selectedForSetlist}
-      showSongDetails={song.showSongDetails}
-    />
-    <SongDetails
-      musicKey={song.key}
-      timeSignature={song.timeSignature}
-      duration={song.duration}
-      date={song.date}
-      url={song.url}
-      inProgress={song.inProgress}
-      selectedForSetlist={song.selectedForSetlist}
-      onToggle={() => this.props.onToggleSongProgress(song.id)}
-      onToggleForSetlist={() => this.props.onToggleSelectedForSetlist(song.id)}
-      onDelete={() => this.props.onDeleteSong(song.id)}
-      onEdit={() => this.props.onEditSong(song.id)}
-      showSongDetails={song.showSongDetails}
+      onToggleForSetlist={() => this.props.onToggleForSetlist(song.id)}
     />
   </SingleSongWrapper>
 ))

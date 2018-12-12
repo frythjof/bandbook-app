@@ -46,13 +46,16 @@ export default class Setlist extends Component {
       <Wrapper data-cy="Setlist">
         <Header title={`Setlist for ${gigday}`} />
         <SetlistContainer>
-          <SetlistSortable songs={this.props.selectedSongs} />
+          <SetlistSortable
+            onToggleForSetlist={this.props.onToggleSelectedForSetlist}
+            songs={this.props.selectedSongs}
+          />
         </SetlistContainer>
         <NewSongLinkWrapper>
           <Link onClick={this.props.onDeleteSetlist} to="/repertoire">
             {'Delete setlist'}
           </Link>
-          <Link to="/setlist">{'Save setlist'}</Link>
+          {/* <Link to="/setlist">{'Save setlist'}</Link> */}
         </NewSongLinkWrapper>
       </Wrapper>
     )

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import backgroundimg from '../data/img/orangebluedrums.jpeg'
+import backgroundimg from '../data/img/Pinklightedstage.jpeg'
 
 export default createGlobalStyle`
 

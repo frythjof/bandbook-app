@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const StyledToggleButton = styled.div`
+const StyledDeleteFromSetlistButton = styled.div`
   margin: auto;
   background-color: #fefefe;
   color: black;
@@ -19,21 +19,20 @@ const StyledToggleButton = styled.div`
   justify-content: center;
 `
 
-export default class ToggleButton extends Component {
+export default class DeleteFromSetlistButton extends Component {
   static propTypes = {
-    onToggle: PropTypes.func.isRequired,
-    showSongDetails: PropTypes.bool.isRequired
+    onToggleForSetlist: PropTypes.func.isRequired
   }
 
   render() {
-    const { onToggle, showSongDetails } = this.props
+    const { onToggleForSetlist } = this.props
     return (
-      <StyledToggleButton
-        data-cy="ToggleButton"
-        onClick={event => onToggle(event.target)}
+      <StyledDeleteFromSetlistButton
+        data-cy="DeleteFromSetlistButton"
+        onClick={event => onToggleForSetlist(event.target)}
       >
-        {showSongDetails ? '-' : '+'}
-      </StyledToggleButton>
+        {'x'}
+      </StyledDeleteFromSetlistButton>
     )
   }
 }

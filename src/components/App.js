@@ -100,12 +100,8 @@ export default class App extends Component {
             path="/setlist"
             render={() => (
               <Setlist
-                onToggleSongDetails={this.toggleSongDetails}
-                onToggleSongProgress={this.toggleSongProgress}
                 onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
-                onDeleteSong={this.deleteSong}
                 onDeleteSetlist={this.deleteSetlist}
-                onEditSong={this.editSong}
                 selectedSongs={this.state.songs.filter(
                   song => song.selectedForSetlist === true
                 )}
