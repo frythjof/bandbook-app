@@ -22,8 +22,7 @@ const deleteSetlist = state => {
   }
 }
 
-const toggleSongDetails = (state, action) => {
-  const { payload } = action
+const toggleSongDetails = (state, { payload }) => {
   const id = payload
 
   const { songs } = state
