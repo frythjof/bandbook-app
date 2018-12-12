@@ -46,7 +46,7 @@ const NewSongLinkWrapper = styled.div`
 export default class SongListEditor extends Component {
   state = {
     song: {
-      name: '',
+      name: '', //this.props.editSong.name,
       tempo: null,
       key: '',
       timeSignature: '',
@@ -100,6 +100,18 @@ export default class SongListEditor extends Component {
     this.url.current.value = ''
   }
 
+  // handleEdit = () => {
+  //   const { editSong } = this.props
+  //   console.log(editSong)
+  //   this.name.current.value = editSong.name
+  //   this.tempo.current.value = editSong.tempo
+  //   this.key.current.value = editSong.key
+  //   this.timeSignature.current.value = editSong.timeSignature
+  //   this.duration.current.value = editSong.duration
+  //   this.date.current.value = editSong.date
+  //   this.url.current.value = editSong.url
+  // }
+
   render() {
     return (
       <Wrapper>
@@ -111,6 +123,7 @@ export default class SongListEditor extends Component {
               name="name"
               placeholder="Song name"
               onChange={this.updateInput}
+              // value={this.state.song.name}
             />
           </SingleSongWrapper>
           <SingleSongWrapper>

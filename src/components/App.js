@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+import { configureStore } from 'redux-starter-kit'
+import reducer from '../duck/reducer'
+import * as Actions from '../duck/actions'
+
 import uid from 'uid'
 import defaultSongs from '../data/default-songs.json'
 import HomeBoard from './screens/HomeBoard'
@@ -54,26 +58,33 @@ const Wrapper = styled.section`
   }
 `
 
-export default class App extends Component {
-  state = {
-    songs: this.createSongsArray()
-  }
+const store = configureStore({ reducer })
 
-  createSongsArray() {
-    return this.load()
-      .map(item => ({
-        ...item,
-        id: uid()
-      }))
-      .sort((a, b) => (a.name < b.name ? -1 : 1))
-  }
+export default class App extends Component {
+  // state = {
+  //   songs: this.createSongsArray()
+  // }
+
+  // createSongsArray() {
+  //   return this.load()
+  //     .map(item => ({
+  //       ...item,
+  //       id: uid()
+  //     }))
+  //     .sort((a, b) => (a.name < b.name ? -1 : 1))
+  // }
 
   // componentDidUpdate = () => {
   //   this.createSongsArray()
   // }
 
+  componentDidMount() {
+    store.subscribe(() => this.forceUpdate())
+  }
+
   render() {
-    this.save()
+    const state = store.getState()
+    this.save(state)
     return (
       <Router>
         <Wrapper>
@@ -92,7 +103,7 @@ export default class App extends Component {
                 onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
                 onDeleteSong={this.deleteSong}
                 onEditSong={this.editSong}
-                allSongs={this.state.songs}
+                allSongs={state.songs}
               />
             )}
           />
@@ -102,7 +113,7 @@ export default class App extends Component {
               <Setlist
                 onToggleSelectedForSetlist={this.toggleSelectedForSetlist}
                 onDeleteSetlist={this.deleteSetlist}
-                selectedSongs={this.state.songs.filter(
+                selectedSongs={state.songs.filter(
                   song => song.selectedForSetlist === true
                 )}
               />
@@ -111,7 +122,10 @@ export default class App extends Component {
           <Route
             path="/songeditor"
             render={() => (
-              <SongListEditor newSong={song => this.addSong(song)} />
+              <SongListEditor
+                newSong={song => this.addSong(song)}
+                // editSong={state.songs[0]}
+              />
             )}
           />
           {/* <Route
@@ -124,7 +138,7 @@ export default class App extends Component {
                 onDeleteSong={this.deleteSong}
                 onDeleteSetlist={this.deleteSetlist}
                 onEditSong={this.editSong}
-                allSongs={this.state.songs.filter(
+                allSongs={state.songs.filter(
                   song => song.selectedForSetlist === true
                 )}
               />
@@ -150,90 +164,93 @@ export default class App extends Component {
   }
 
   addSong = newSong => {
-    this.setState({
-      songs: [...this.state.songs, newSong].sort((a, b) =>
-        a.name < b.name ? -1 : 1
-      )
-    })
+    store.dispatch(Actions.addSong(newSong))
+    // this.setState({
+    //   songs: [...this.state.songs, newSong].sort((a, b) =>
+    //     a.name < b.name ? -1 : 1
+    //   )
+    // })
   }
 
   deleteSetlist = () => {
-    this.setState({
-      songs: this.state.songs.map(item => ({
-        ...item,
-        selectedForSetlist: false
-      }))
-    })
+    store.dispatch(Actions.deleteSetlist())
+    // this.setState({
+    //   songs: this.state.songs.map(item => ({
+    //     ...item,
+    //     selectedForSetlist: false
+    //   }))
+    // })
   }
 
   toggleSongDetails = id => {
-    const { songs } = this.state
-    const index = songs.findIndex(s => s.id === id)
-    const newSongs = [
-      ...songs.slice(0, index),
-      { ...songs[index], showSongDetails: !songs[index].showSongDetails },
-      ...songs.slice(index + 1)
-    ]
+    store.dispatch(Actions.toggleSongDetails(id))
+    // const { songs } = this.state
+    // const index = songs.findIndex(s => s.id === id)
+    // const newSongs = [
+    //   ...songs.slice(0, index),
+    //   { ...songs[index], showSongDetails: !songs[index].showSongDetails },
+    //   ...songs.slice(index + 1)
+    // ]
 
-    this.setState({
-      songs: newSongs
-    })
+    // this.setState({
+    //   songs: newSongs
+    // })
   }
 
   toggleSongProgress = id => {
-    const { songs } = this.state
-    const index = songs.findIndex(s => s.id === id)
-    const newSongs = [
-      ...songs.slice(0, index),
-      { ...songs[index], inProgress: !songs[index].inProgress },
-      ...songs.slice(index + 1)
-    ]
+    store.dispatch(Actions.toggleSongProgress(id))
+    // const { songs } = this.state
+    // const index = songs.findIndex(s => s.id === id)
+    // const newSongs = [
+    //   ...songs.slice(0, index),
+    //   { ...songs[index], inProgress: !songs[index].inProgress },
+    //   ...songs.slice(index + 1)
+    // ]
 
-    this.setState({
-      songs: newSongs
-    })
+    // this.setState({
+    //   songs: newSongs
+    // })
   }
 
   toggleSelectedForSetlist = id => {
-    const { songs } = this.state
-    const index = songs.findIndex(s => s.id === id)
-    const newSetlist = [
-      ...songs.slice(0, index),
-      { ...songs[index], selectedForSetlist: !songs[index].selectedForSetlist },
-      ...songs.slice(index + 1)
-    ]
+    store.dispatch(Actions.toggleSelectedForSetlist(id))
+    // const { songs } = this.state
+    // const index = songs.findIndex(s => s.id === id)
+    // const newSetlist = [
+    //   ...songs.slice(0, index),
+    //   { ...songs[index], selectedForSetlist: !songs[index].selectedForSetlist },
+    //   ...songs.slice(index + 1)
+    // ]
 
-    this.setState({
-      songs: newSetlist
-    })
+    // this.setState({
+    //   songs: newSetlist
+    // })
   }
 
   // editSong
 
   deleteSong = id => {
-    const { songs } = this.state
-    const index = songs.findIndex(s => s.id === id)
-    const newSongs = [...songs.slice(0, index), ...songs.slice(index + 1)]
+    store.dispatch(Actions.deleteSong(id))
+    // const { songs } = this.state
+    // const index = songs.findIndex(s => s.id === id)
+    // const newSongs = [...songs.slice(0, index), ...songs.slice(index + 1)]
 
-    this.setState({
-      songs: newSongs
-    })
+    // this.setState({
+    //   songs: newSongs
+    // })
   }
 
-  save() {
-    localStorage.setItem(
-      'bandbook-app--songs',
-      JSON.stringify(this.state.songs)
-    )
+  save(state) {
+    localStorage.setItem('bandbook-app--songs', JSON.stringify(state.songs))
   }
 
-  load() {
-    try {
-      return (
-        JSON.parse(localStorage.getItem('bandbook-app--songs')) || defaultSongs
-      )
-    } catch (err) {
-      return defaultSongs
-    }
-  }
+  // load() {
+  //   try {
+  //     return (
+  //       JSON.parse(localStorage.getItem('bandbook-app--songs')) || defaultSongs
+  //     )
+  //   } catch (err) {
+  //     return defaultSongs
+  //   }
+  // }
 }
